@@ -1,0 +1,126 @@
+#left-bar {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 60%;
+}
+
+#left-bar h2, h3 {
+  font-weight: 300;
+}
+
+#client-details h3 {
+  padding-left: 30px;
+}
+
+#action-plans {
+  float: left;
+  margin: 0 auto;
+}
+
+#add-action-plan {
+  background-color: #E9E9E9;
+  border-radius: 4px;
+  margin: 5px 5px 0px 55px;
+  font-size: 16px;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#add-action-plan:hover {
+  background-color: #929292;
+  color: white;
+}
+
+.new-action-plan-form {
+  background-color: #E9E9E9;
+  float: left;
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 20px 50px 20px 50px;
+  width: 91%;
+}
+
+.form-wrapper {
+  margin: 0 auto;
+}
+
+.new-action-plan-field {
+  border-radius: 2px;
+  font-weight: 300;
+  height: 38px;
+  margin: 6px auto;
+  padding: 0px 15px;
+  width: 50%;
+}
+
+.action-plan-list {
+  margin: 0;
+  padding-left: 30px;
+  width: 120%;
+}
+
+.action-plan-list td h3 {
+  display: inline;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 0px 10px 0px 30px;
+}
+
+.action-plan-list td h4 {
+  color: #7EA869;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.action-plan-list td a{
+  color: #E9E9E9;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0;
+  padding: 0px 20px;
+  text-decoration: none;
+}
+
+.action-plan-list td p {
+  line-height: .5;
+  font-size: 13px;
+}
+
+.show-goals {
+}
+
+.show-goals-steps {
+}
+
+
+ul.side-bar  {
+  float: right;
+  margin: 0;
+  padding: 0;
+  width: 35%;
+}
+
+ul.side-bar li {
+  background-color: #E9E9E9;
+  margin: 20px 0px;
+  padding: 2px 20px;
+}
+
+ul.side-bar li h2{
+  font-weight: 300;
+}
+
+.new-msg {
+  display: block;
+}
+
+.texts {
+  background-color: #E9E9E9;
+
+  display: block;
+  height: 500px;
+}

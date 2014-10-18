@@ -1,0 +1,75 @@
+a {
+  color: green;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none;
+}
+
+.goal {
+}
+
+.goal-description {
+  color: red;
+}
+
+.step {
+  color: blue;
+}
+
+.content {
+  max-width: 1220px;
+  margin: auto;
+  bottom: 0;
+}
+
+.action-plan-goals {
+  margin-left: 3%;
+}
+
+.goal-steps {
+  margin-left: 3%;
+}
+
+#new-text-message {
+  text-align: center;
+}
+
+#new-text-message textarea {
+  width: 100%;
+}
+
+#new-message-length-submit {
+  text-align: left;
+}
+
+#message-length {
+  display: inline-block;
+  padding: 10px;
+}
+
+#text-length {
+  font-weight: bold;
+}
+
+#new-text-message-submit-button {
+  background-color: #1CA634;
+  border-radius: 4px;
+  float: right;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 5px;
+  padding: 12px 15px;
+}
+
+#text-form {
+  width: 500px;
+  max-width: 100%;
+  margin: auto;
+}

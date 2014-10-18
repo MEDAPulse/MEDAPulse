@@ -8,12 +8,14 @@
 </head>
 <body>
 
-   <ul>
-        <li><%= link_to "Home", welcome_index_path %></li>
+     <div class="container">
+       <ul class="nav nav-tabs">
+        <li><%= link_to "Bloccit", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
-   </ul>
+      </ul>
 
-<%= yield %>
+      <%= yield %>
+     </div>
 
 </body>
 </html>
