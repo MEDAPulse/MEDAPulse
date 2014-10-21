@@ -1,0 +1,10 @@
+<h1>All Clients</h1>
+<% @clients.each do |client| %>
+   <div class="media">
+     <div class="media-body">
+       <h4 class="media-heading">
+         <p><%= link_to client.last_name, client_path(client.id) %></p>
+       </h4>
+     </div>
+   </div>
+<% end %>
