@@ -38,7 +38,6 @@ gem 'spring',        group: :development
 gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker', :groups => [:development, :test]
 
@@ -46,4 +45,6 @@ gem 'twilio-ruby'
 
 gem 'bootstrap-sass'
 
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+
+gem 'pundit'

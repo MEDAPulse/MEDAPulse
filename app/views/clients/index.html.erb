@@ -1,4 +1,9 @@
 <h1>All Clients</h1>
+
+<% if policy(Client.new).create? %>
+<%= link_to "New Client", new_client_path, class: 'btn btn-success' %>
+<% end %>
+
 <% @clients.each do |client| %>
    <div class="media">
      <div class="media-body">

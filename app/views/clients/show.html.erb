@@ -1,6 +1,9 @@
 <h1><%= @client.first_name %></h1>
 <h1><%= @client.last_name %></h1>
+
+<% if policy(@client).edit? %>
 <%= link_to "Edit", edit_client_path(@client), class: 'btn btn-success' %>
+<% end %>
 
 <h3><%= @client.phone %></h3>
 <h3><%= @client.email %></h3>
