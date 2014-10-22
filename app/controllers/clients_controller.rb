@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = current_user.clients.build(params.require(:post).permit(:first_name, :last_name, :salesforce_id, :email, :phone))
+    @client = Client.new(params.require(:client).permit(:first_name, :last_name, :salesforce_id, :email, :phone))
     authorize @client
     
     if @client.save
@@ -28,12 +28,12 @@ class ClientsController < ApplicationController
 
   def edit
     @client = Client.find(params[:id])
-    authorize @client
+    # authorize @client
   end
 
   def update
      @client = Client.find(params[:id])
-     authorize @client
+     # authorize @client
      if @client.update_attributes(params.require(:client).permit(:first_name, :last_name, :salesforce_id, :email, :phone))
        flash[:notice] = "Client was updated."
        redirect_to @client
