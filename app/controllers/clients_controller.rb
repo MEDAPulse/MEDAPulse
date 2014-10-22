@@ -1,10 +1,13 @@
 class ClientsController < ApplicationController
   def index
     @clients = Client.all
+    authorize @clients
   end
 
   def create
-    @client = Client.new(params.require(:client).permit(:first_name, :last_name, :salesforce_id, :email, :phone))
+    @client = current_user.clients.build(params.require(:post).permit(:first_name, :last_name, :salesforce_id, :email, :phone))
+    authorize @client
+    
     if @client.save
       flash[:notice] = "Client was saved."
       redirect_to @client
@@ -20,14 +23,17 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
+    authorize @client
   end
 
   def edit
     @client = Client.find(params[:id])
+    authorize @client
   end
 
   def update
      @client = Client.find(params[:id])
+     authorize @client
      if @client.update_attributes(params.require(:client).permit(:first_name, :last_name, :salesforce_id, :email, :phone))
        flash[:notice] = "Client was updated."
        redirect_to @client

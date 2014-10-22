@@ -78,6 +78,8 @@ GEM
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.5)
+    pundit (0.3.0)
+      activesupport (>= 3.0.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -152,7 +154,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
@@ -163,6 +164,7 @@ DEPENDENCIES
   jquery-rails
   non-stupid-digest-assets
   pg
+  pundit
   rails (= 4.1.1)
   sass-rails (>= 5.0.0.beta1)
   sdoc (~> 0.4.0)
