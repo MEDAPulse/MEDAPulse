@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20141021033649) do
     t.datetime "updated_at"
   end
 
+  add_index "action_plans", ["client_id"], name: "index_action_plans_on_client_id", using: :btree
+
   create_table "clients", force: true do |t|
     t.integer  "user_id"
     t.string   "first_name",    null: false
@@ -34,12 +36,16 @@ ActiveRecord::Schema.define(version: 20141021033649) do
     t.datetime "updated_at"
   end
 
+  add_index "clients", ["user_id"], name: "index_clients_on_user_id", using: :btree
+
   create_table "goals", force: true do |t|
     t.integer  "action_plan_id"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "goals", ["action_plan_id"], name: "index_goals_on_action_plan_id", using: :btree
 
   create_table "steps", force: true do |t|
     t.integer  "goal_id"
@@ -50,6 +56,8 @@ ActiveRecord::Schema.define(version: 20141021033649) do
     t.datetime "updated_at"
   end
 
+  add_index "steps", ["goal_id"], name: "index_steps_on_goal_id", using: :btree
+
   create_table "text_messages", force: true do |t|
     t.integer  "client_id"
     t.text     "content"
@@ -57,6 +65,8 @@ ActiveRecord::Schema.define(version: 20141021033649) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "text_messages", ["client_id"], name: "index_text_messages_on_client_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -69,8 +79,8 @@ ActiveRecord::Schema.define(version: 20141021033649) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
