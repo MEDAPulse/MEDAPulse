@@ -19,6 +19,7 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
+    @action_plan = @client.action_plans
   end
 
   def new

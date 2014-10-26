@@ -6,4 +6,11 @@
 <h3><%= @client.phone %></h3>
 <h3><%= @client.email %></h3>
 <h3><%= @client.salesforce_id %></h3>
+<h3>
+	<% if @action_plan %>
+		<% @action_plan.each do |plan| %>
+			<%= plan.description %>
+		<% end %>
+	<% end %>
+</h3>
 
