@@ -1,16 +1,15 @@
-<h1>All Clients</h1>
+<h2>All Clients</h2>
 
-<% if policy(Client.new).create? %>
-<%= link_to "New Client", new_client_path, class: 'btn btn-success' %>
-<% end %>
-
-<% @clients.each do |client| %>
-   <div class="media">
-     <div class="media-body">
-       <h4 class="media-heading">
-         <p><%= link_to client.last_name, client_path(client.id) %></p>
-       </h4>
-     </div>
-   </div>
-<% end %>
-
+<div id="left-bar">
+    <% if policy(Client.new).create? %>
+      <%= link_to "New Client", new_client_path, class: 'btn btn-success' %>
+    <% end %>
+  <div class="dashboard">
+  <div id="client-details">
+    <% @clients.each do |client| %>
+      <%= link_to client.last_name, client %>
+      </br>
+    <% end %>
+  </div>
+  </div>
+</div>
