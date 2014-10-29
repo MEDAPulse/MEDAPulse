@@ -1,15 +1,20 @@
 class ClientsController < ApplicationController
   def index
-    @clients = Client.all
+    @clients = current_user.clients.all
     authorize @clients
   end
 
+  def new
+    @client = current_user.clients.new
+    authorize @client
+  end
+
   def create
-    @client = Client.new(params.require(:client).permit(:first_name, :last_name, :salesforce_id, :email, :phone))
+    @client = current_user.clients.new(client_params)
     authorize @client
     
     if @client.save
-      flash[:notice] = "Client was saved."
+      flash[:notice] = "Success!  Client was saved."
       redirect_to @client
     else
       flash[:error] = "There was an error saving the Client. Please try again."
@@ -18,33 +23,29 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @client = Client.find(params[:id])
+    @client = current_user.clients.find(params[:id])
     @action_plan = @client.action_plans
   end
 
-  def new
-    @client = Client.new
-    authorize @client
-  end
-
   def edit
-    @client = Client.find(params[:id])
+    @client = current_user.clients.find(params[:id])
     # authorize @client
   end
 
   def update
-     @client = Client.find(params[:id])
-     # authorize @client
-     if @client.update_attributes(params.require(:client).permit(:first_name, :last_name, :salesforce_id, :email, :phone))
-       flash[:notice] = "Client was updated."
-       redirect_to @client
-     else
-       flash[:error] = "There was an error saving the client. Please try again."
-       render :edit
-     end
+    @client = current_user.clients.find(params[:id])
+    # authorize @client
+    if @client.update_attributes(client_params)
+      flash[:notice] = "Success!  Client was updated."
+      redirect_to @client
+    else
+      flash[:error] = "There was an error saving the client. Please try again."
+      render :edit
+    end
   end
- def destroy
-    @client = Client.find(params[:id])
+  
+  def destroy
+    @client = current_user.clients.find(params[:id])
     first_name = @client.first_name
 
     if @client.destroy
@@ -56,4 +57,10 @@ class ClientsController < ApplicationController
     end
   end
 
+
+  private
+  
+  def client_params
+    params.require(:client).permit(:first_name, :last_name, :phone, :salesforce_id, :email)
+  end
 end
