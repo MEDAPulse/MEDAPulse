@@ -1,16 +1,17 @@
-<h1><%= @client.first_name %></h1>
-<h1><%= @client.last_name %></h1>
+<div id="left-bar">
+  <div id="client-details">
+    <h2><%= "#{@client.first_name} #{@client.last_name}" %></h2>
+    <h3>Phone: <%= @client.phone %></h3>
+    <h3>Email: <%= @client.email %></h3>
+    <h3>Salesforce ID: <%= @client.salesforce_id %></h3>
+		<h3>
+			<% if @action_plan %>
+				<% @action_plan.each do |plan| %>
+					<%= plan.description %>
+				<% end %>
+			<% end %>
+		</h3>
+  </div>
 
 <%= link_to "Edit", edit_client_path(@client), class: 'btn btn-success' %>
-
-<h3><%= @client.phone %></h3>
-<h3><%= @client.email %></h3>
-<h3><%= @client.salesforce_id %></h3>
-<h3>
-	<% if @action_plan %>
-		<% @action_plan.each do |plan| %>
-			<%= plan.description %>
-		<% end %>
-	<% end %>
-</h3>
-
+<%= link_to "Delete Client", @client, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this client?' } %>

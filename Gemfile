@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 gem 'pg'
 
 # User authentication
-
 gem 'devise' 
 
 # Background worker of choice
@@ -48,3 +47,6 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
 gem 'pundit'
+
+# For Angular asset package management
+gem 'bower-rails'
