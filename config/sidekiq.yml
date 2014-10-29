@@ -1,0 +1,7 @@
+---
+:concurrency: 4
+:logfile: ./log/sidekiq.log
+:queues:
+  - default
+  - [high_priority, 2]
+:daemon: true

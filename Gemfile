@@ -7,7 +7,6 @@ gem 'rails', '4.1.1'
 gem 'pg'
 
 # User authentication
-
 gem 'devise' 
 
 # Background worker of choice
@@ -49,4 +48,5 @@ gem 'font-awesome-rails'
 
 gem 'pundit'
 
+# For Angular asset package management
 gem 'bower-rails'
