@@ -17,18 +17,16 @@ class ActionPlansController < ApplicationController
   end
 
   def show
-    # @client = current_user.clients.find(params[:client_id])
     @action_plan = ActionPlan.find(params[:id])
   end
   
   def edit
-    # @client = current_user.clients.find(params[:client_id])
     @action_plan = ActionPlan.find(params[:id])
   end
   
   def update
     @action_plan = ActionPlan.find(params[:id])
-    # authorize @client
+
     if @action_plan.update_attributes(action_plan_params)
       flash[:notice] = "Success!  Plan was updated."
       redirect_to @action_plan
