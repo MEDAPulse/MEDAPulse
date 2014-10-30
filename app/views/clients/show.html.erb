@@ -19,7 +19,7 @@
 			<% if @action_plan %>
 				<ul class="list-group">
 					<% @action_plan.each do |plan| %>
-						<%= link_to "#{plan.description}", action_plan_path,
+						<%= link_to "#{plan.description}", action_plan_path(plan),
 						class: "list-group-item" %>
 					<% end %>
 				<ul>
