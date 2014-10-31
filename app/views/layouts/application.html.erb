@@ -1,44 +1,18 @@
 <!DOCTYPE html>
-<html ng-app="welcome">
-<head>
-  <title>Medapulse</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html ng-app="welcome"
+	<head>
+	  <title>Medapulse</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
 
-     <div class="container">
-      <ul class="nav nav-tabs">
-      <li><%= link_to "MedaPulse", root_path %></li>
-      <li>
-        <!-- link to upcoming press release --> 
-        <a href="http://www.prnewswire.com/news-releases/cities-for-financial-empowerment-fund-and-capital-one-announce-winners-of-multi-city-hackathon-to-support-financial-empowerment-274604051.html">About</a>
-      </li>
-      <li>
-        <a href="http://medasf.org/">MEDA Home</a>
-      </li>
-      <li>
-        <a href="https://github.com/cyancey/meda_pulse">Contribute</a>
-      </li>
-      <li>
-        <a href="http://techcrunch.com/2014/10/11/how-tech-can-foster-financial-capability-for-the-underbanked/">Press</a>
-      </li> 
-     
-     <div class="pull-right user-info">
-           <% if current_user %>
-             Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-           <% else %>
-             <%= link_to "Sign In", new_user_session_path, :onclick => 'dosomething();' %> or 
-             <%= link_to "Sign Up", new_user_registration_path %>
-           <% end %>
-     </div>
-
-     </ul>
-
-      <%= yield %>
-     </div>
-
-</body>
-
+	<body>
+	  <%= render 'layouts/header' %>
+	
+		<div class='container'>
+			<%= render 'layouts/messages' %>
+		 	<%= yield %>
+		</div>
+	</body>
 </html>
