@@ -1,0 +1,15 @@
+<div id="left-bar">
+  <div id="client-details">
+		<h2>
+			Action Plan
+			<%= link_to "Back", client_path(id: @action_plan.client_id), class: 'btn btn-default' %>
+			<%= link_to "Update", edit_action_plan_path(@action_plan),
+					class: 'btn btn-success' %>
+		</h2>
+		<h2>Name:</h2>
+    <h2>Description:</h2>
+		<h3><%= "#{@action_plan.description}" %></h3>
+		<hr>
+		<h2>Goals:</h2>
+	</div>
+</div>
