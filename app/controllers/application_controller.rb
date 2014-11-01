@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError do |exception|
     redirect_to root_url, alert: exception.message
   end
+  
+  # Redirect coach to Client's view after successful login.
+  def after_sign_in_path_for(resource)
+    clients_path
+  end
 
   protected
 
