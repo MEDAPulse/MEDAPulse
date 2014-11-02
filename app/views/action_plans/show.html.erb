@@ -10,24 +10,12 @@
 		<h2>Name:</h2>
     <h2>Description:</h2>
 		<h3><%= "#{@action_plan.description}" %></h3>
-		
 		<hr>
-		
-		<table class="table">
+		<% if @goals %>
 			<h2>Goals:</h2>
-				<% if @goals %>
-					<% @goals.each do |goal| %>
-						<tr>
-						  <td class="h4"><%= goal.description %></td>
-						  <td>
-								<%= link_to "Update", edit_goal_path(goal), class: 'btn btn-info' %>
-							</td>
-						  <td>
-								<%= link_to "New Step", new_goal_step_path(goal), class: 'btn btn-success' %>
-							</td>
-						</tr>
-					<% end %>
-				<% end %>
+			<table class="table">
+				<%= render @goals %>
 			</table>
+		<% end %>
 	</div>
 </div>

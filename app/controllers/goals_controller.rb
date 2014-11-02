@@ -16,6 +16,11 @@ class GoalsController < ApplicationController
     end
   end
 
+  def show
+    @action_plan = ActionPlan.find(params[:action_plan_id])
+    @goals = @action_plan.goals.all
+  end
+
   def edit
     @goal = Goal.find(params[:id])
   end
