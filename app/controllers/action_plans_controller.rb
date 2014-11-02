@@ -18,6 +18,7 @@ class ActionPlansController < ApplicationController
 
   def show
     @action_plan = ActionPlan.find(params[:id])
+    @goals = @action_plan.goals.all
   end
   
   def edit

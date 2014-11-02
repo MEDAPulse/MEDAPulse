@@ -4,12 +4,30 @@
 			Action Plan
 			<%= link_to "Back", client_path(id: @action_plan.client_id), class: 'btn btn-default' %>
 			<%= link_to "Update", edit_action_plan_path(@action_plan),
-					class: 'btn btn-success' %>
+					class: 'btn btn-info' %>
+			<%= link_to "New Goal", new_action_plan_goal_path(@action_plan), class: 'btn btn-success' %>
 		</h2>
 		<h2>Name:</h2>
     <h2>Description:</h2>
 		<h3><%= "#{@action_plan.description}" %></h3>
+		
 		<hr>
-		<h2>Goals:</h2>
+		
+		<table class="table">
+			<h2>Goals:</h2>
+				<% if @goals %>
+					<% @goals.each do |goal| %>
+						<tr>
+						  <td class="h4"><%= goal.description %></td>
+						  <td>
+								<%= link_to "Update", edit_goal_path(goal), class: 'btn btn-info' %>
+							</td>
+						  <td>
+								<%= link_to "New Step", new_goal_step_path(goal), class: 'btn btn-success' %>
+							</td>
+						</tr>
+					<% end %>
+				<% end %>
+			</table>
 	</div>
 </div>
