@@ -13,11 +13,13 @@
 			  <li><a href="https://github.com/cyancey/meda_pulse">Contribute</a></li>
 			  <li>
 			    <a href="http://techcrunch.com/2014/10/11/how-tech-can-foster-financial-capability-for-the-underbanked/">Press</a>
-			  </li> 
+			  </li>
 			</ul>
 		  <ul class="nav navbar-nav navbar-right navbar-text">
-		  	<% if current_user %>
-		  		Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+		  	<% if current_user %>					
+		  		<%= link_to "Hello, #{current_user.first_name}!", edit_user_registration_path(current_user) %>
+					<span class="divider">|</span>
+					<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 		   	<% else %>
 		      <%= link_to "Sign In", new_user_session_path, :onclick => 'dosomething();' %> or 
 		      <%= link_to "Sign Up", new_user_registration_path %>
