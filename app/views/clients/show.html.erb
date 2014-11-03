@@ -16,9 +16,9 @@
 			Action Plans: <%= link_to "New", new_client_action_plan_path(@client),
 												class: 'btn btn-success' %>
 		</h2>
-			<% if @action_plan %>
+			<% if @action_plans %>
 				<ul class="list-group">
-					<% @action_plan.each do |plan| %>
+					<% @action_plans.each do |plan| %>
 						<%= link_to "#{plan.description}", action_plan_path(plan),
 						class: "list-group-item" %>
 					<% end %>
