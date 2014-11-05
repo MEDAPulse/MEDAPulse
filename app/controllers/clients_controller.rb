@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
       flash[:notice] = "Success!  Client was saved."
       redirect_to @client
     else
-      flash[:error] = "There was an error saving the Client. Please try again."
+      flash[:error] = @client.errors.full_messages
       render :new
     end
   end
