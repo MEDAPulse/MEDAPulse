@@ -1,8 +1,12 @@
-<% flash.each do |key, value| %>
+<% flash.each do |key, message| %>
   <div class="alert alert-<%= key %> alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert">
 			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 		</button>
-      <ul><li><%= value %></li></ul>
+    <ul>
+			<% message.each do |msg| %>
+			 	<li><%= msg %></li>
+			<% end %>
+    <% end %>
+    </ul>
   </div>
-<% end %>
