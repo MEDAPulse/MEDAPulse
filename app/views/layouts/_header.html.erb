@@ -1,20 +1,9 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <%= link_to "MedaPulse", root_path, class: "navbar-brand" %>
+      <%= link_to image_tag('medalogo.jpg'), clients_path %>
     </div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li>
-			  	<!-- link to upcoming press release --> 
-			  	<a href="http://www.prnewswire.com/news-releases/cities-for-financial-empowerment-fund-and-capital-one-announce-winners-of-multi-city-hackathon-to-support-financial-empowerment-274604051.html">About</a>
-				</li>
-				<li><a href="http://medasf.org/">MEDA Home</a></li>
-			  <li><a href="https://github.com/cyancey/meda_pulse">Contribute</a></li>
-			  <li>
-			    <a href="http://techcrunch.com/2014/10/11/how-tech-can-foster-financial-capability-for-the-underbanked/">Press</a>
-			  </li>
-			</ul>
 		  <ul class="nav navbar-nav navbar-right navbar-text">
 		  	<% if current_user %>					
 		  		<%= link_to "Hello, #{current_user.first_name}!", edit_user_registration_path(current_user) %>
