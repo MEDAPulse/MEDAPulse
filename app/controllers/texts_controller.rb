@@ -1,8 +1,8 @@
 class TextsController < ApplicationController
   
   def new
-    @step = Step.find(params[:step_id])
-    @text_message = @step.text_message.build
+    @client = current_user.clients.find(params[:client_id])
+    @text_message = @client.text_message.build
   end
 
   def create
@@ -27,7 +27,7 @@ class TextsController < ApplicationController
   private
 
   def text_message_params
-    params.require(:text_message).permit(:content, :client_id)
+    params.require(:text_message).permit(:content, :scheduled_date, :client_id)
   end  
 
 end

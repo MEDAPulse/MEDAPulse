@@ -36,6 +36,9 @@ class StepsController < ApplicationController
     end
   end
 
+  def show
+    @client = current_user.clients.find(params[:id])
+  end
 
   private
   
