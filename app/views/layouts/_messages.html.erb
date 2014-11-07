@@ -3,10 +3,15 @@
 		<button type="button" class="close" data-dismiss="alert">
 			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 		</button>
+		
     <ul>
-			<% message.each do |msg| %>
-			 	<li><%= msg %></li>
+			<% if message.is_a? String %>
+				<li><%= message %></li>
+			<% elsif message.is_a? Array %>
+				<% message.each do |msg| %>
+				 	<li><%= msg %></li>
+				<% end %>
 			<% end %>
-    <% end %>
     </ul>
   </div>
+ <% end %>
