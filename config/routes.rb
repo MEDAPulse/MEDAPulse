@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users, :path => '',
-    :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+    :path_names => {:sign_in => 'login', :sign_out => 'logout'}, 
+    :controllers => { registrations: 'registrations' }
 
   resources :clients do
     resources :action_plans, shallow: true, except: [:index] do
