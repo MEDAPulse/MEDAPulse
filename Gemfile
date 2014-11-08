@@ -42,6 +42,11 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'faker', :groups => [:development, :test]
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 gem 'twilio-ruby'
 
 gem 'newrelic_rpm'
