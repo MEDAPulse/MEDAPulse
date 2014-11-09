@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   # before_filter :cors_preflight_check
   # after_filter :cors_set_access_control_headers
 
-  before_filter :set_headers
+ # before_filter :set_headers
 
   def index  
     @clients = current_user.clients.all
@@ -70,14 +70,14 @@ class ClientsController < ApplicationController
     params.require(:client).permit(:first_name, :last_name, :phone, :salesforce_id, :email)
   end
 
-  def set_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Expose-Headers'] = 'ETag'
-    headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
-    headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,If-Modified-Since,If-None-Match'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Max-Age'] = '86400'
-  end
+  # def set_headers
+  #   headers['Access-Control-Allow-Origin'] = '*'
+  #   headers['Access-Control-Expose-Headers'] = 'ETag'
+  #   headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
+  #   headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,If-Modified-Since,If-None-Match'
+  #   headers['Access-Control-Request-Method'] = '*'
+  #   headers['Access-Control-Max-Age'] = '86400'
+  # end
 
   # # For all responses in this controller, return the CORS access control headers.
   # def cors_set_access_control_headers 

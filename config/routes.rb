@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   # resources :clients, :only=>[:index]
   # match '/clients', :controller => 'clients', :action => 
 
-  controller :clients do
-    get 'clients#index' => :options_response
-  end
+  # controller :clients do
+  #   get 'clients#index' => :options_response
+  # end
   
 end
