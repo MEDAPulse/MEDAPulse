@@ -52,6 +52,3 @@ gem 'pundit'
 
 # For Angular asset package management
 gem 'bower-rails'
-
-# For handling CORS policy
-gem 'rack-cors', :require => 'rack/cors'
