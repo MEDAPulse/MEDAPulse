@@ -85,6 +85,7 @@ GEM
     pundit (0.3.0)
       activesupport (>= 3.0.0)
     rack (1.5.2)
+    rack-cors (0.2.9)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.1)
@@ -289,6 +290,7 @@ DEPENDENCIES
   non-stupid-digest-assets
   pg
   pundit
+  rack-cors
   rails (= 4.1.1)
   sass-rails (>= 5.0.0.beta1)
   sdoc (~> 0.4.0)
