@@ -52,3 +52,8 @@ gem 'pundit'
 
 # For Angular asset package management
 gem 'bower-rails'
+
+group :development do
+  gem 'pry'  
+  gem 'pry-nav'  
+end

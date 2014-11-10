@@ -8,7 +8,6 @@ class ClientsController < ApplicationController
     @clients = current_user.clients
     authorize @clients
     respond_with @clients
-    puts @clients
   end
 
   def new
