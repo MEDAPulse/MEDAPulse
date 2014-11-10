@@ -14,22 +14,13 @@
 */
 
 
-  app.controller("customersController", function($scope,$http) {
+  app.controller("customersController", ['$scope', '$http',
+    function($scope,$http) {
     
-    var site = "localhost:3000";
-    var page = "/app/WebServiceQueries/clients_SQL.rb";
-    $http.get(site + page)
-    .success(function(response) {$scope.names = response;});  
+    $http.get("/clients.json")
+    .success(function(response) {$scope.names = response;}
+      );  
 
+  }]);
 
-  });
-/*
-
-    function customersController($scope,$http) {
-    var site = "localhost:3000";
-    var page = "/app/WebServiceQueries/clients_SQL.rb";
-    $http.get(site + page)
-    .success(function(response) {$scope.names = response;});
-}
-*/
 })();

@@ -16,11 +16,13 @@
 
 
 <div ng-controller="customersController"> 
+  <input ng-model="query" type="text"
+        placeholder="Filter by" autofocus>
 Clients:
 <table>
   <tr ng-repeat="x in names">
-    <td>{{ x.Name }}</td>
-    <td>{{ x.Country }}</td>
+    <td>{{ x.first_name }}</td>
+    <td>{{ x.last_name }}</td>
   </tr>
 </table>
 
