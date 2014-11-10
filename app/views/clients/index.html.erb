@@ -1,15 +1,18 @@
 <h2>My Clients</h2>
 
-<div id="left-bar">
+ <div id="left-bar">
     <% if policy(Client.new).create? %>
       <%= link_to "New Client", new_client_path, class: 'btn btn-success' %>
     <% end %>
+    <br><br>
   <div class="dashboard">
-  <div id="client-details">
-    <% @clients.each do |client| %>
-      <%= link_to client.last_name, client %>
-      </br>
-    <% end %>
+    <div id="client-details">
+      <table ng-controller="customersController">
+        <input ng-model="query" type="text" placeholder="Type in a name.." autofocus>
+          <tr ng-repeat="x in names | filter:query">
+            <td><a href="clients/{{ x.id }}">{{x.last_name}}</a></td>
+          </tr>
+      </table>
+    </div>
   </div>
-  </div>
-</div>
+</div> 
