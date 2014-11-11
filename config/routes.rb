@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'
