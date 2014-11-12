@@ -1,4 +1,9 @@
 <%= div_for step do %>
 	<%= step.description %>
+	<% if current_page?(action_plan_path) %>
+		<%= link_to edit_step_path(step) do %>
+			<span class="glyphicon glyphicon-edit"></span>
+		<% end %>
+	<% end %>
 <% end%>
 

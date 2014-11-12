@@ -1,21 +1,29 @@
-<div id="left-bar">
-  <div id="client-details">
-		<h2>
-			Action Plan
-			<%= link_to "Back", client_path(id: @action_plan.client_id), class: 'btn btn-default' %>
-			<%= link_to "Update", edit_action_plan_path(@action_plan),
-					class: 'btn btn-info' %>
-			<%= link_to "New Goal", new_action_plan_goal_path(@action_plan), class: 'btn btn-success' %>
-		</h2>
-		<h2>Name:</h2>
-    <h2>Description:</h2>
-		<h3><%= "#{@action_plan.description}" %></h3>
-		<hr>
-		<% if @goals %>
-			<h2>Goals:</h2>
-			<table class="table">
-				<%= render @goals %>
-			</table>
-		<% end %>
+<div class="row">
+
+	<div class="col-xs-4">
+		<%= render partial: "clients/client_sidebar", object: @client %>
+	</div>
+
+	<div class="col-xs-8">
+
+		<%= render 'navbar' %>
+	
+		<div>
+			<div class='h4'>
+				<%= @action_plan.description %>
+			</div>
+			
+		</div>
+		
+		<div class="container">
+			Goals:
+			<% if current_page?(action_plan_path) %>
+				<%= link_to new_action_plan_goal_path(@action_plan) do %>
+					<span class="glyphicon glyphicon-plus-sign"></span>
+				<% end %>
+			<% end %>
+			<%= render @goals %>
+		</div>
 	</div>
 </div>
+

@@ -1,4 +1,22 @@
-<h3>New Action Plan</h3>
+<div class="row">
 
-<%= render 'form' %>
+	<div class="col-xs-4">
+		<%= render partial: "clients/client_sidebar", object: @client %>
+	</div>
 
+	<div class="col-xs-8">
+		<%= render 'navbar' %>
+	
+		<div>
+			<%= form_for([@client, @action_plan], html: { class: "form-inline" } ) do |f| %>
+				<div class="form-group">
+					<%= f.text_field :description, class: 'form-control',
+						placeholder: "Enter title of plan (e.g., 12/31/14 Meeting with Maria)" %>
+				</div>
+				<div class="form-group">
+					<%= f.submit "Next", class: 'btn btn-success' %>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+</div>

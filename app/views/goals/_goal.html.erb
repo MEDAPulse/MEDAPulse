@@ -2,12 +2,29 @@
 
 	<div>
 		Goal <%= format_counter(goal_counter) %>: <%= goal.description %>
+		<% if current_page?(action_plan_path) %>
+			<%= link_to edit_goal_path(goal) do %>
+				<span class="glyphicon glyphicon-edit"></span>
+			<% end %>
+		<% end %>
 	</div>
 
 	<div class='container'>
-		<div>
-			Steps Due Date Status Messages (Sent / Total)
-		</div>
+		Steps:
+		<% if current_page?(action_plan_path) %>
+			<%= link_to new_goal_step_path(goal) do %>
+				<span class="glyphicon glyphicon-plus-sign"></span>
+			<% end %>
+		<% end %>
+		
+		<% if goal.steps.present? %>
+			<% if current_page?(client_path) %>
+				<div>
+					Due Date Status Messages (Sent / Total)
+				</div>
+			<% end %>
+		<% end %>
+
 		<%= render goal.steps %>
 	</div>
 
