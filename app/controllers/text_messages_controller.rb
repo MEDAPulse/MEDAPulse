@@ -15,6 +15,7 @@ class TextMessagesController < ApplicationController
 
     if @text_message.save
       flash[:notice] = "Success! Text Message was saved."
+      @text_message.send_text_message(@text_message.content)
       redirect_to @client  
     else
       flash[:error] = "There was an error saving the text message. Please try again."
@@ -22,14 +23,14 @@ class TextMessagesController < ApplicationController
     end
   end
 
-  def update
+  # def update
  
-    @text_message = TextMessage.find(params[:id]) 
+    # @text_message = TextMessage.find(params[:id]) 
 
-    if @text_message.sentstatus == true
-      @text_message.send_text_message
-    end
-  end 
+   #if @text_message.sentstatus == true
+      # @text_message.send_text_message
+  # end
+  # end 
 
   private
 
