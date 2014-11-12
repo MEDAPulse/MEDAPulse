@@ -1,26 +1,26 @@
 <div class="row">
 
   <div class="col-xs-4">
-		<%= render current_user %>
+    <%= render current_user %>
   </div>
 
   <div class="col-xs-8">
-		<div>
-	    <% if policy(Client.new).create? %>
-	      <%= link_to "Create New Client", new_client_path, class: 'btn btn-success' %>
-	    <% end %>
-		</div>
-	  <div>
-	  	<h4>[ placeholder for Search Existing Clients ]</h4>
-	  </div>
-	  <div>
-	  	<h4><%= "Clients (#{@clients.count} total)" %></h4>
-	  </div>
-	  <div>
-			<h4>Name Email Phone Number Salesforce ID</h4>
-			<%= render @clients %>
-	  </div>
-	</div>
+    <div>
+      <% if policy(Client.new).create? %>
+        <%= link_to "Create New Client", new_client_path, class: 'btn btn-success' %>
+      <% end %>
+    </div>
+    <div>
+      <h4>[ placeholder for Search Existing Clients ]</h4>
+    </div>
+    <div>
+      <h4><%= "Clients (#{@clients.count} total)" %></h4>
+    </div>
+    <div>
+      <h4>Name Email Phone Number Salesforce ID</h4>
+      <%= render @clients %>
+    </div>
+  </div>
 
 
 </div>
