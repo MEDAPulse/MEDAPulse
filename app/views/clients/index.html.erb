@@ -4,23 +4,29 @@
     <%= render current_user %>
   </div>
 
-  <div class="col-xs-8">
-    <div>
-      <% if policy(Client.new).create? %>
-        <%= link_to "Create New Client", new_client_path, class: 'btn btn-success' %>
-      <% end %>
-    </div>
-    <div>
-      <h4>[ placeholder for Search Existing Clients ]</h4>
-    </div>
-    <div>
-      <h4><%= "Clients (#{@clients.count} total)" %></h4>
-    </div>
-    <div>
-      <h4>Name Email Phone Number Salesforce ID</h4>
-      <%= render @clients %>
-    </div>
-  </div>
+    <div class="col-xs-8">
+      <div>
+        <% if policy(Client.new).create? %>
+          <%= link_to "Create New Client", new_client_path, class: 'btn btn-success' %>
+        <% end %>
+      </div>
 
+      <table ng-controller="clientsController">
+        <input ng-model="query" type="text" placeholder="Search by any field.." autofocus>
+          <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Salesforce ID</td>
+          </tr>
+          <tr ng-repeat="client in clients | filter:query:strict">
+            <td><a href="clients/{{ client.id }}">{{client.last_name}}</a></td>
+            <td>{{client.email}}</td>
+            <td>{{client.phone}}</td>
+            <td>{{client.salesforce_id}}</td>
+          </tr>
+      </table>
+
+    </div>
 
 </div>
