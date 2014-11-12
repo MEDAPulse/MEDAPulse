@@ -4,6 +4,8 @@ class ClientsController < ApplicationController
   respond_to :json, :html
   before_filter :set_headers
 
+  before_filter :set_cache_headers
+
   def index  
     @clients = current_user.clients
     authorize @clients
@@ -78,4 +80,11 @@ class ClientsController < ApplicationController
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Max-Age'] = '86400'
   end
+
+  def set_cache_headers
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
+
 end

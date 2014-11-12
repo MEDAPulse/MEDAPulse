@@ -65,11 +65,9 @@ ActiveRecord::Schema.define(version: 20141111215841) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "scheduled_date"
-    t.integer  "step_id"
   end
 
   add_index "text_messages", ["client_id"], name: "index_text_messages_on_client_id", using: :btree
-  add_index "text_messages", ["step_id"], name: "index_text_messages_on_step_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
