@@ -1,15 +1,26 @@
-<h2>My Clients</h2>
+<div class="row">
 
-<div id="left-bar">
-    <% if policy(Client.new).create? %>
-      <%= link_to "New Client", new_client_path, class: 'btn btn-success' %>
-    <% end %>
-  <div class="dashboard">
-  <div id="client-details">
-    <% @clients.each do |client| %>
-      <%= link_to client.last_name, client %>
-      </br>
-    <% end %>
+  <div class="col-xs-4">
+    <%= render current_user %>
   </div>
+
+  <div class="col-xs-8">
+    <div>
+      <% if policy(Client.new).create? %>
+        <%= link_to "Create New Client", new_client_path, class: 'btn btn-success' %>
+      <% end %>
+    </div>
+    <div>
+      <h4>[ placeholder for Search Existing Clients ]</h4>
+    </div>
+    <div>
+      <h4><%= "Clients (#{@clients.count} total)" %></h4>
+    </div>
+    <div>
+      <h4>Name Email Phone Number Salesforce ID</h4>
+      <%= render @clients %>
+    </div>
   </div>
+
+
 </div>

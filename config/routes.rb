@@ -5,13 +5,19 @@ Rails.application.routes.draw do
     :controllers => { registrations: 'registrations' }
 
   resources :clients do
+    resources :action_plans, shallow: true, except: [:index] 
+  end
+  
+  resources :action_plans, shallow: true, only: [] do
+    resources :goals, shallow: true, except: [:index]
+  end
+
+  resources :goals, shallow: true, only: [] do
+    resources :steps, shallow: true, except: [:index, :destroy]
+  end
+
+  resources :steps, shallow: true, only: [] do
     resources :text_messages, shallow: true, except: [:index, :destroy]
-    resources :action_plans, shallow: true, except: [:index] do
-      resources :goals, shallow: true, except: [:index] do
-        resources :steps, shallow: true, except: [:index, :destroy] do
-        end
-      end
-    end
   end
 
   get 'about' => 'welcome#about'
