@@ -1,0 +1,8 @@
+<%= div_for action_plan do %>
+	<div>
+		<%= link_to "Action Plan:  #{action_plan.description}", edit_action_plan_path(action_plan) %>
+	</div>
+
+	<%= render action_plan.goals %>
+
+<% end %>

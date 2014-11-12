@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   def index
-    @clients = current_user.clients.all
+    @clients = current_user.clients
     authorize @clients
   end
 
@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
 
   def show
     @client = current_user.clients.find(params[:id])
-    @action_plans = @client.action_plans.all
+    @action_plans = @client.action_plans
   end
 
   def edit

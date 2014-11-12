@@ -1,14 +1,16 @@
-<tr>
-  <td class="h4"><%= goal.description %></td>
-  <td><%= link_to "Update", edit_goal_path(goal), class: 'btn btn-info' %></td>
-  <td><%= link_to "New Step", new_goal_step_path(goal),
-		class: 'btn btn-success' %></td>
-</tr>
+<%= div_for goal, class: 'container' do %>
 
-<% if goal.steps.count > 0 %>
 	<div>
-		<tr><td><h4>Steps:<h4></td></tr>
+		Goal <%= format_counter(goal_counter) %>: <%= goal.description %>
+	</div>
+
+	<div class='container'>
+		<div>
+			Steps Due Date Status Messages (Sent / Total)
+		</div>
 		<%= render goal.steps %>
 	</div>
+
 <% end %>
+
 
