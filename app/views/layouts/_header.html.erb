@@ -3,6 +3,8 @@
     <div class="navbar-header">
       <% if user_signed_in? %>
         <%= link_to image_tag('medalogo.jpg'), clients_path %>
+      <% else %>
+        <%= image_tag('medalogo.jpg') %>
       <% end %>
     </div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

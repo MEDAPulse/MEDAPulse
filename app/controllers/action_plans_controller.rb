@@ -1,4 +1,6 @@
 class ActionPlansController < ApplicationController
+  before_filter :authenticate_user!
+  
   def new
     @client = current_user.clients.find(params[:client_id])
     @action_plan = @client.action_plans.build

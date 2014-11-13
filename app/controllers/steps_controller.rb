@@ -1,4 +1,6 @@
 class StepsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def new
     @goal = Goal.find(params[:goal_id])
     @steps = @goal.steps.build
