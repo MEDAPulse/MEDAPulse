@@ -1,6 +1,6 @@
-<tr class="warning">
-  <td></td>
-  <td class="h4"><%= text_message.content %></td>
-  <td><%= link_to "Update", edit_text_message_path(text_message), class: 'btn btn-info' %></td>
-  <td><%= link_to "New Text", new_step_text_message_path(step) %></td>
-<tr>
+<%= div_for text_message do %>
+	<span class="glyphicon glyphicon-envelope"></span>
+	<%= text_message.content %>
+	[sent date placeholder]
+	<%= text_message.sentstatus %>
+<% end %>

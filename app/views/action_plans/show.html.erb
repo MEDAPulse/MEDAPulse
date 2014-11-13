@@ -9,19 +9,24 @@
 		<%= render 'navbar' %>
 	
 		<div>
-			<div class='h4'>
+			<div class='h3'>
 				<%= @action_plan.description %>
+				<%= link_to edit_action_plan_path(@action_plan) do %>
+					<span class="glyphicon glyphicon-edit"></span>
+				<% end %>
 			</div>
 			
 		</div>
 		
 		<div class="container">
-			Goals:
+			<h4>
+				Goals:
 			<% if current_page?(action_plan_path) %>
 				<%= link_to new_action_plan_goal_path(@action_plan) do %>
 					<span class="glyphicon glyphicon-plus-sign"></span>
 				<% end %>
 			<% end %>
+			</h4>
 			<%= render @goals %>
 		</div>
 	</div>
