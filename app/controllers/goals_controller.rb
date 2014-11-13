@@ -1,4 +1,6 @@
 class GoalsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def new
     @action_plan = ActionPlan.find(params[:action_plan_id])
     @goal = @action_plan.goals.build
