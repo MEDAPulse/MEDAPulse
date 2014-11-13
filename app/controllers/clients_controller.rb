@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
   before_filter :set_cache_headers
 
   def index  
-    @clients = current_user.clients
+    @clients = current_user.clients.order(:last_name)
     authorize @clients
     respond_with @clients
   end

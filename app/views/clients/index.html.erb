@@ -12,7 +12,7 @@
       </div>
 
       <table ng-controller="clientsController">
-        <input ng-model="query" type="text" placeholder="Search by any field.." autofocus>
+        <input type="text" placeholder="Search by any field.." autofocus ng-model="query">
           <tr>
             <td>Name</td>
             <td>Email</td>
@@ -26,7 +26,6 @@
             <td>{{client.salesforce_id}}</td>
           </tr>
       </table>
-
     </div>
 
 </div>
