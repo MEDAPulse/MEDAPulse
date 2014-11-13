@@ -1,14 +1,35 @@
-<tr>
-  <td class="h4"><%= goal.description %></td>
-  <td><%= link_to "Update", edit_goal_path(goal), class: 'btn btn-info' %></td>
-  <td><%= link_to "New Step", new_goal_step_path(goal),
-		class: 'btn btn-success' %></td>
-</tr>
+<%= div_for goal, class: 'container' do %>
 
-<% if goal.steps.count > 0 %>
-	<div>
-		<tr><td><h4>Steps:<h4></td></tr>
+	<div class='h4'>
+		Goal <%= format_counter(goal_counter) %>: <%= goal.description %>
+		<% if current_page?(action_plan_path) %>
+			<%= link_to edit_goal_path(goal) do %>
+				<span class="glyphicon glyphicon-edit"></span>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div class='container'>
+		<h4>
+		Steps:
+		<% if current_page?(action_plan_path) %>
+			<%= link_to new_goal_step_path(goal) do %>
+				<span class="glyphicon glyphicon-plus-sign"></span>
+			<% end %>
+		<% end %>
+		</h4>
+		
+		<% if goal.steps.present? %>
+			<% if current_page?(client_path) %>
+				<div>
+					Due Date Status Messages (Sent / Total)
+				</div>
+			<% end %>
+		<% end %>
+
 		<%= render goal.steps %>
 	</div>
+
 <% end %>
+
 

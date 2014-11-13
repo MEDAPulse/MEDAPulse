@@ -28,10 +28,11 @@ class StepsController < ApplicationController
     @step = Step.find(params[:id])
     @goal = Goal.find(@step.goal_id)
     @action_plan = ActionPlan.find(@goal.action_plan_id)
+    @client = Client.find(@action_plan[:client_id])
 
     if @step.update_attributes(step_params)
       flash[:notice] = "Success!  Step was updated."
-      redirect_to @action_plan
+      redirect_to @client
     else
       flash[:error] = "There was an error saving the step. Please try again."
       render :edit

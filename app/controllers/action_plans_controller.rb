@@ -30,6 +30,7 @@ class ActionPlansController < ApplicationController
   
   def update
     @action_plan = ActionPlan.find(params[:id])
+    # @client = Client.find(@action_plan[:client_id])
 
     if @action_plan.update_attributes(action_plan_params)
       flash[:notice] = "Success!  Plan was updated."

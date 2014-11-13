@@ -1,0 +1,11 @@
+<%= div_for action_plan do %>
+	<div class='h3'>
+		<%= "Action Plan:  #{action_plan.description}" %>
+		<%= link_to action_plan_path(action_plan) do %>
+			<span class="glyphicon glyphicon-zoom-in"></span>
+		<% end %>
+	</div>
+
+	<%= render action_plan.goals %>
+
+<% end %>

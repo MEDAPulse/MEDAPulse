@@ -17,7 +17,7 @@
 		<%= f.label :complete %>
 	</div>
 	<div class="form-group">
-		<%= link_to "Cancel", :back, class: 'btn btn-default' %>
+		<%= link_to "Cancel", action_plan_path(@action_plan), class: 'btn btn-default' %>
 		<%= f.submit "Save", class: 'btn btn-success' %>
   </div>
 <% end %>
