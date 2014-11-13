@@ -1,4 +1,5 @@
 class TextMessagesController < ApplicationController
+  before_filter :authenticate_user!
   
   def new
     @client = current_user.clients.find(params[:client_id])
