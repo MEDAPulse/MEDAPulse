@@ -3,7 +3,7 @@ class StepsController < ApplicationController
   
   def new
     @goal = Goal.find(params[:goal_id])
-    @steps = @goal.steps.build
+    @step = @goal.steps.build
   end
 
   def create
