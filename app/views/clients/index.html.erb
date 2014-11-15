@@ -11,21 +11,23 @@
         <% end %>
       </div>
 
-      <table ng-controller="clientsController">
-        <input type="text" placeholder="Search by any field.." autofocus ng-model="query">
+      <div ng-controller="clientsController">
+        <table>
+          <input type="text" placeholder="Search by any field.." ng-model="query" autofocus> Showing {{filtered.length}} clients.
           <tr>
             <td>Name</td>
             <td>Email</td>
             <td>Phone</td>
             <td>Salesforce ID</td>
           </tr>
-          <tr ng-repeat="client in clients | filter:query:strict">
+          <tr ng-repeat="client in filtered = (clients | filter:query:strict)">
             <td><a href="clients/{{ client.id }}">{{client.last_name}}</a></td>
             <td>{{client.email}}</td>
             <td>{{client.phone}}</td>
             <td>{{client.salesforce_id}}</td>
           </tr>
-      </table>
+        <table>
+      </div>
     </div>
 
 </div>
