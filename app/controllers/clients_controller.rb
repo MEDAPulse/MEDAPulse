@@ -2,7 +2,6 @@ class ClientsController < ApplicationController
   # Implented for CORS - 'Cross-Origin Resource Sharing' for JSON and RAILS #
   respond_to :json, :html
   before_filter :set_headers
-  before_filter :set_cache_headers
 
   def index
     @clients = current_user.clients.order(:last_name)
@@ -36,7 +35,7 @@ class ClientsController < ApplicationController
     @client = current_user.clients.find(params[:id])
     # authorize @client
   end
-  
+
   def update
     @client = current_user.clients.find(params[:id])
     # authorize @client
@@ -64,7 +63,7 @@ class ClientsController < ApplicationController
   private
 
     def client_params
-    params.require(:client).permit(:first_name, :last_name, :phone, :salesforce_id, :email)
+      params.require(:client).permit(:first_name, :last_name, :phone, :salesforce_id, :email)
     end
 
     def set_headers
@@ -75,10 +74,4 @@ class ClientsController < ApplicationController
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Max-Age'] = '86400'
     end
-
-    def set_cache_headers
-    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
-  end
 end
