@@ -4,11 +4,15 @@ require 'twilio-ruby'
 belongs_to :client, dependent: :destroy
 belongs_to :step, dependent: :destroy
 
-before_save :grab_phone
+before_save :grab_phone, :record_status
 
-def grab_phone
-  self.phone = step.goal.action_plan.client.phone
-end
+  def grab_phone
+    self.phone = step.goal.action_plan.client.phone
+  end
+
+  def record_status
+    self.sentstatus = true
+  end
 
   def send_text_message(message, phone)
 
