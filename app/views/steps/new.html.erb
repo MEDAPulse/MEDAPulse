@@ -1,7 +1,7 @@
 <h3>New Step</h3>
 
 <div class="col-md-8">
-<%= form_for([@goal, @steps]) do |f| %>
+<%= form_for([@goal, @step]) do |f| %>
 	<div class="form-group">
 		<%= f.label :description %>
 		<%= f.text_field :description, class: 'form-control',
@@ -17,7 +17,7 @@
 		<%= f.label :complete %>
 	</div>
 	<div class="form-group">
-		<%= link_to "Cancel", action_plan_path(@action_plan), class: 'btn btn-default' %>
+		<%= link_to "Cancel", :back, class: 'btn btn-default' %>
 		<%= f.submit "Save", class: 'btn btn-success' %>
   </div>
 <% end %>

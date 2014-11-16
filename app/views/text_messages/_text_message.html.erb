@@ -1,6 +1,6 @@
 <%= div_for text_message do %>
 	<span class="glyphicon glyphicon-envelope"></span>
 	<%= text_message.content %>
-	[sent date placeholder]
+  <%= text_message.scheduled_date %>
 	<%= text_message.sentstatus %>
 <% end %>
