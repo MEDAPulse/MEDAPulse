@@ -4,14 +4,10 @@ require 'twilio-ruby'
 belongs_to :client, dependent: :destroy
 belongs_to :step, dependent: :destroy
 
-before_save :grab_phone, :record_status
+before_save :grab_phone
 
   def grab_phone
     self.phone = step.goal.action_plan.client.phone
-  end
-
-  def record_status
-    self.sentstatus = true
   end
 
   def send_text_message(message, phone)
@@ -21,6 +17,8 @@ before_save :grab_phone, :record_status
     twilio_phone_number = ENV["TWILIO_PHONE_NUMBER"]
  
     @twilio_client = Twilio::REST::Client.new(twilio_sid, twilio_token)
+
+    self.sentstatus = true
     
     @twilio_client.account.sms.messages.create(
       :from => "+1#{twilio_phone_number}",

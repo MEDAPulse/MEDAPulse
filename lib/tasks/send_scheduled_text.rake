@@ -1,6 +1,6 @@
 require_relative '../../app/workers/send_text_worker'
 
-namespace :send_texts do
+namespace :send_scheduled_text do
   
   task:texts => :environment do
 
