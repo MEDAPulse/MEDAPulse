@@ -35,7 +35,7 @@ class GoalsController < ApplicationController
     if @goal.update_attributes(goal_params)
       flash[:notice] = "Success!  Goal was updated."
       redirect_to @action_plan
-      
+    else  
       flash[:error] = "There was an error saving the goal. Please try again."
       render :edit
     end
