@@ -11,6 +11,8 @@ gem 'devise'
 
 # Background worker of choice
 gem 'sidekiq', '3.2.5'
+gem 'whenever', :require => false
+
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.0' # ...with Bootstrap!

@@ -13,21 +13,22 @@ def create
     
   @text_message = @step.text_messages.build(text_message_params)
   @text_message.incoming_message = false
+  @text_message.sentstatus = false
   
   if @text_message.scheduled_date == nil 
-    @text_message.send_text_message(@text_message.content, phone)
-    @text_message.sentstatus = true
-  else
-    @text_message.sentstatus = false
+    @text_message.send_text_message(@text_message.content)
   end
 
-  if @text_message.save
-    flash[:notice] = "Success! Text Message was saved."
+  if (@text_message.save && (@text_message.sentstatus == true))
+    flash[:notice] = "Success! Text message is being sent now."
+    redirect_to @text_message.step.goal.action_plan 
+  elsif (@text_message.save && (@text_message.sentstatus == false))
+    flash[:notice] = "Success! Text message was scheduled."
     redirect_to @text_message.step.goal.action_plan 
   else
     flash[:error] = "There was an error saving the text message. Please try again."
     render :new
-    end
+  end
 end
 
 def update
