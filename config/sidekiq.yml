@@ -2,5 +2,5 @@
 :concurrency: 4
 :logfile: ./log/sidekiq.log
 :queues:
-  - default
+  - send_texts
   - [high_priority, 2]
