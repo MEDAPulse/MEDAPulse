@@ -9,6 +9,7 @@
 		  		<%= link_to "Hello, #{current_user.first_name}!", edit_user_registration_path(current_user) %>
 					<span class="divider"> </span>
 					<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+					<button ng-click="logout()" class="btn btn-primary" >Logout</button>
 				</ul>
 			</div>
 		<% else %>
