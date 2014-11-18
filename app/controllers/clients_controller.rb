@@ -1,6 +1,5 @@
 class ClientsController < ApplicationController
   # Implented for CORS - 'Cross-Origin Resource Sharing' for JSON and RAILS #
-  respond_to :json, :html
   before_filter :set_headers
 
   def index
