@@ -12,4 +12,3 @@ namespace :send_scheduled_text do
       end
     end
   end
-end
