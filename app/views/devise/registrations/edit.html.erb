@@ -19,7 +19,9 @@
     </div>
     <div class='form-group'>
       <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control' %>
+      <div class='form-control'>
+      <%= f.select(:title, options_for_select([['Financial Capability', 'Financial Capability'], ['Homeownership', 'Homeownership'], ['Workforce', 'Workforce'], ['SparkPoint', 'SparkPoint'], ['Other', 'Other']])) %>
+      </div>
     </div>
     <fieldset>
       <p>Leave these fields blank if you don't want to change your password.</p>
