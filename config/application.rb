@@ -37,5 +37,6 @@ module Medapulse
     # Leave this here for now, it may be needed in case we decide to swap css asset manager over to bower
     # config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+
   end
 end
