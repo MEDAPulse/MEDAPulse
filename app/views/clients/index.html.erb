@@ -17,12 +17,14 @@
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
+        <th>MEDA Contact ID</th>
         <th>Salesforce ID</th>
       </tr>
       <tr ng-repeat="client in filtered = (clients | filter:query:strict)">
         <td><a href="clients/{{ client.id }}">{{client.last_name}}</a></td>
         <td>{{client.email}}</td>
         <td>{{client.phone}}</td>
+        <td>{{client.contact_id}}</td>
         <td>{{client.salesforce_id}}</td>
       </tr>
     <table>
