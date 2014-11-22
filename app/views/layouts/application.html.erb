@@ -2,17 +2,49 @@
 <html ng-app="welcome"
 	<head>
 	  <title>Medapulse</title>
-	  <%= stylesheet_link_tag    "application", media: "all" %>
-	  <%= javascript_include_tag "application" %>
-	  <%= csrf_meta_tags %>
-	</head>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>			    
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+		<link rel="stylesheet" type="text/css" href="css/fontello.css">
 
-	<body>
-	  <%= render 'layouts/header' %>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+ 		<link rel="stylesheet" href="/resources/demos/style.css">
+
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+		
+	</head>
 	
-		<div class='container'>
-			<%= render 'layouts/messages' %>
-		 	<%= yield %>
-		</div>
-	</body>
+	<% if user_signed_in? %>
+		<body class="signed-in">
+
+			<header>
+			  <%= render 'layouts/header' %>
+			</header>
+		
+			<div class='container'>
+				<!--<%= render 'layouts/messages' %>-->
+			 	<%= yield %>
+			</div>
+
+		</body>
+
+
+	<% else %>
+		<body class="not-signed-in">
+
+			<header>
+			  <%= render 'layouts/header' %>
+			</header>
+		
+			<div class='container'>
+				<!--<%= render 'layouts/messages' %>-->
+			 	<%= yield %>
+			</div>
+
+		</body>
+	<% end %>
 </html>

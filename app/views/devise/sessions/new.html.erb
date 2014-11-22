@@ -1,31 +1,28 @@
-<h3>Sign in</h3>
+<div class="form-style">
 
-<div class='well'>
-	<div class='authform'>
-		<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form'}) do |f| %>
+	<h2>Sign in</h2>
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form', class: "pure-form pure-form-aligned" }) do |f| %>
 
-		  <div class='form-group'>
-		    <%= f.label :email %>
-		    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-		  </div>
+			  <div class='pure-control-group'>
+			    <%= f.label :email %>
+			    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+			  </div>
 
-		  <div class='form-group'>
-		    <%= f.label :password %>
-		    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-		  </div>
+			  <div class='pure-control-group'>
+			    <%= f.label :password %>
+			    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+			  </div>
 
-		  <% if devise_mapping.rememberable? -%>
-		    <div class='form-group'>
-		      <%= f.check_box :remember_me %>
-		      <%= f.label :remember_me %>
-		    </div>
-		  <% end -%>
-		
-			<div class='actions'>
-				<%= f.submit 'Sign in', class: 'btn btn-success' %>
-			</div>
-	  <% end %>
-	</div>
+			  <% if devise_mapping.rememberable? -%>
+				    <div class='pure-control-group'>
+				      <%= f.check_box :remember_me %>
+				      <%= f.label :remember_me %>
+				    </div>
+			  <% end -%>
+				<div class='actions'>
+					<%= f.submit 'Sign in', class: 'pure-button pure-button-primary' %>
+				</div>
+		  <% end %>
 </div>
 
 <%= render "devise/shared/links" %>

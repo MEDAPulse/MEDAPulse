@@ -1,46 +1,48 @@
-<h3>Sign up</h3>
+<div class="form-style">
+	<h2>Sign up</h2>
 
-<%= devise_error_messages! %>
+	<%= devise_error_messages! %>
 
-<div class='well'>
-	<div class='authform'>
-	  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form'}) do |f| %>
+	<form class="pure-form pure-form-aligned">
+	    <fieldset>
 
-	    <div class='form-group'>
-	      <%= f.label :first_name %>
-	      <%= f.text_field :first_name, :autofocus => true, class: 'form-control' %>
-	    </div>
+	 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form'}) do |f| %>
 
-	    <div class='form-group'>
-	      <%= f.label :last_name %>
-	      <%= f.text_field :last_name, class: 'form-control' %>
-	    </div>
+		    <div class='pure-control-group'>
+		      <%= f.label :first_name %>
+		      <%= f.text_field :first_name, :autofocus => true, class: 'form-control' %>
+		    </div>
 
-	    <div class='form-group'>
-	      <%= f.label :email %>
-	      <%= f.email_field :email, class: 'form-control' %>
-	    </div>
-			
-	    <div class='form-group'>
-	      <%= f.label :title %>
-	      <div class='form-control'>
-	      <%= f.select(:title, options_for_select([['Financial Capability', 'Financial Capability'], ['Homeownership', 'Homeownership'], ['Workforce', 'Workforce'], ['SparkPoint', 'SparkPoint'], ['Other', 'Other']])) %>
-	    	</div>
-	    </div>
+		    <div class='pure-control-group'>
+		      <%= f.label :last_name %>
+		      <%= f.text_field :last_name, class: 'form-control' %>
+		    </div>
 
-	    <div class='form-group'>
-	      <%= f.label :password %>
-	      <%= f.password_field :password, class: 'form-control' %>
-	    </div>
+		    <div class='pure-control-group'>
+		      <%= f.label :email %>
+		      <%= f.email_field :email, class: 'form-control' %>
+		    </div>
+				
+		    <div class='pure-control-group'>
+	     	  	<%= f.label :title %>
+	     	 	<%= f.select(:title, options_for_select([['Financial Capability', 'Financial Capability'], ['Homeownership', 'Homeownership'], ['Workforce', 'Workforce'], ['SparkPoint', 'SparkPoint'], ['Other', 'Other']])) %>
+		    </div>
 
-	    <div class='form-group'>
-	      <%= f.label :password_confirmation %>
-	      <%= f.password_field :password_confirmation, class: 'form-control' %>
-	    </div>
+		    <div class='pure-control-group'>
+		      <%= f.label :password %>
+		      <%= f.password_field :password, class: 'form-control' %>
+		    </div>
 
-			<div class='actions'>
-	     <%= f.submit 'Sign up', class: 'btn btn-success' %>
-			</div>
-	  <% end %>
-	</div>
+		    <div class='pure-control-group'>
+		      <%= f.label :password_confirmation %>
+		      <%= f.password_field :password_confirmation, class: 'form-control' %>
+		    </div>
+
+				<div class='actions'>
+		     <%= f.submit 'Sign up', class: 'pure-button pure-button-primary' %>
+				</div>
+		  <% end %>
+		</fieldset>
+	</form>
+>>>>>>> committing css changes in progress to separate branch, removed bootstrap and added purecss.io
 </div>

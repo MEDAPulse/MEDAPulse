@@ -11,8 +11,13 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-family: 'Lato', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+}
+
+body {
+    background: image-url("intro-bg.jpg");
+    background-size: 100%;
 }
 
 .lead {
@@ -21,11 +26,10 @@ h6 {
 }
 
 .intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
+    /*padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    /*padding-bottom: 50px;*/
     text-align: center;
     color: #000000;
-    background: image-url("intro-bg.jpg");
     background-size: cover;
 }
 
@@ -53,9 +57,6 @@ h6 {
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
-.intro-message > h3 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
-}
 
 @media(max-width:767px) {
     .intro-message {
@@ -140,7 +141,6 @@ h6 {
 
 footer {
     padding: 50px 0;
-    background-color: #f8f8f8;
 }
 
 p.copyright {

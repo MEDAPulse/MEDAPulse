@@ -13,9 +13,42 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/*@import "bootstrap-sprockets";*/
+/*@import "bootstrap";*/
 @import "font-awesome"; 
+
+h2 {
+    font-size: 2em;
+}
+
+.header-zazzle {
+    display: inline;
+    padding: 0px;
+}
+
+.inline-display {
+    display: inline !important;
+}
+
+header {
+    background-color: white;    
+}
+
+.navbar-header {
+    display: inline-block;
+}
+
+.float-right {
+    float: right;
+}
+
+.form-style {
+    padding: 0px 40px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; 
+}
 
 /*flash*/
 .alert-error {
