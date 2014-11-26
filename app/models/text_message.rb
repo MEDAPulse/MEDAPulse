@@ -1,6 +1,7 @@
-class TextMessage < ActiveRecord::Base
 require 'twilio-ruby'
 require 'date'
+
+class TextMessage < ActiveRecord::Base
 
 belongs_to :client, dependent: :destroy
 belongs_to :step, dependent: :destroy
