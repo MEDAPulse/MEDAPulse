@@ -8,8 +8,6 @@ namespace :send_scheduled_text do
       if ((text_message.sentstatus == false) && (Date.today == text_message.scheduled_date))
       # Sidekiq code: 
       SendTextWorker.perform_async(text_message.id)
-      # Production rake task: 
-      # text_message.send_text_message(text_message.content)
       end
     end
   end

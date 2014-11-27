@@ -91,6 +91,8 @@ GEM
     pundit (0.3.0)
       activesupport (>= 3.0.0)
     rack (1.5.2)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.1)
@@ -126,6 +128,10 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
+    sinatra (1.4.5)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
     spring (1.1.3)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -179,6 +185,7 @@ DEPENDENCIES
   rails (= 4.1.1)
   sass-rails (>= 5.0.0.beta1)
   sidekiq (= 3.2.5)
+  sinatra (>= 1.3.0)
   spring
   sprockets-rails
   twilio-ruby
