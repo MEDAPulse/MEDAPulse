@@ -14,9 +14,10 @@ def create
   @text_message = @step.text_messages.build(text_message_params)
   @text_message.incoming_message = false
   @text_message.sentstatus = false
+  @text_message.phone = phone
   
   if @text_message.scheduled_date == nil 
-    @text_message.send_text_message(@text_message.content)
+    @text_message.send_text_message(@text_message.content, @text_message.phone)
   end
 
   if (@text_message.save && (@text_message.sentstatus == true))
