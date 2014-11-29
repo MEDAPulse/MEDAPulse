@@ -46,6 +46,12 @@ end
 def receive
   @text_message=TextMessage.create!(content: params[:Body], phone: params[:From])
   @text_message.incoming_message = true
+
+  if @text_message.save
+    render nothing: true, status: 200
+  else
+    puts 'ERROR: company or customer couldn\'t be loaded' 
+  end 
 end  
 
 private
