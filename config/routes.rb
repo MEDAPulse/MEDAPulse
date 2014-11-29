@@ -26,6 +26,9 @@ require 'sidekiq/web'
     resources :text_messages, shallow: true, except: [:index, :destroy]
   end
 
+  get "text_messages/receive"
+  match '/receivetext' => 'text_messages#receive', :via => :post
+
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'
