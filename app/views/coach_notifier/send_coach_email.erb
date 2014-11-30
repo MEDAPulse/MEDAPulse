@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey, <%= @user.firstname %>!</h1>
+    <p>One of your clients is reaching out to you. Here is what they have to say:</p>
+    <p>Client name: <%= @user.client.firstname %> <%= @user.client.lastname %> </p>
+    <p>Please respond to your client by texting them via MEDAPulse or giving them a call.</p>
+    <p>Cheers,</p>
+    <p>The MEDAPulse Team</p>
+  </body>
+</html>
