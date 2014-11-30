@@ -58,6 +58,6 @@ When(/^I sign up without a mismatched password combo$/) do
   sign_up
 end
 
-Then(/^I should see "(.*?)"$/) do |message|
+Then(/^I should see the message "(.*?)"$/) do |message|
   expect(page).to have_content( message )
 end
