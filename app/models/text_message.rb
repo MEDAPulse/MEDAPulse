@@ -3,8 +3,9 @@ require 'date'
 
 class TextMessage < ActiveRecord::Base
 
-belongs_to :client, dependent: :destroy
-belongs_to :step, dependent: :destroy
+  belongs_to :client, dependent: :destroy
+  belongs_to :step, dependent: :destroy
+  has_many :coach_emails
 
 before_save :grab_phone
 

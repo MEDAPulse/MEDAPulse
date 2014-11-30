@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120224143) do
+ActiveRecord::Schema.define(version: 20141130044503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20141120224143) do
   end
 
   add_index "clients", ["user_id"], name: "index_clients_on_user_id", using: :btree
+
+  create_table "coach_emails", force: true do |t|
+    t.integer  "user_id"
+    t.string   "email",      null: false
+    t.text     "content",    null: false
+    t.boolean  "sentstatus"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "coach_emails", ["user_id"], name: "index_coach_emails_on_user_id", using: :btree
 
   create_table "goals", force: true do |t|
     t.integer  "action_plan_id"
@@ -84,6 +95,10 @@ ActiveRecord::Schema.define(version: 20141120224143) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
