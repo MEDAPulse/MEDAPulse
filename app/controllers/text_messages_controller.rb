@@ -48,7 +48,9 @@ def receive
   @client = Client.find_by(phone: params[:From])
 
   if @text_message.save
-    @coach_email=CoachEmail.create!(content: @text_message.content, sentstatus: "false", email: @client.user.email )
+    @coach_email=CoachEmail.create!(content: @text_message.content, sentstatus: "false", email: @client.user.email,
+      coach_firstname: @client.user.first_name, client_firstname: @client.first_name, client_lastname: @client.last_name)
+    CoachNotifier.send_coach_email(@coach_email).deliver
     render nothing: true, status: 200
   else
     puts 'ERROR: company or customer couldn\'t be loaded' 
