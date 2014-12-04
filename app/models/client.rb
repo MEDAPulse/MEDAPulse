@@ -10,7 +10,4 @@ class Client < ActiveRecord::Base
     message: "number format is +1 followed by the rest of the phone number. Example: +14152823334"}
   validates :salesforce_id, length: { minimum: 15, message: "ID is too short, if you do not wish to enter a Salesforce ID then simply enter a random sequence e.g. '123456789123456'" }
   validates :contact_id, presence: true, length: { minimum: 7 }
-#  if :contact_id.length < 1
-#    puts "I got here"
-#  end
 end
