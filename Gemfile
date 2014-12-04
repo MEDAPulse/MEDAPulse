@@ -13,6 +13,9 @@ gem 'devise'
 gem 'sidekiq', '3.2.5'
 gem 'whenever', :require => false
 
+# Debugging
+gem 'pry'
+gem 'pry-nav'
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.0' # ...with Bootstrap!
