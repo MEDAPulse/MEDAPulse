@@ -1,6 +1,6 @@
 ## Shared methods
 def create_coach
-  @coach ||= FactoryGirl.create(:user)
+  @coach ||= FactoryGirl.create(:confirmed_user)
 end
 
 def sign_in

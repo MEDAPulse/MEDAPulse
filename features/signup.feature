@@ -5,7 +5,7 @@ Feature: Pulse Sign Up
 
 	Scenario: Coach can signup with valid information
 	  When I sign up with valid credentials
-	  Then I should see the message "Welcome! You have signed up successfully."
+	  Then I should see the message "A message with a confirmation link has been sent to your email address"
 
 	Scenario: Coach cannot sign up without an email address
 		When I sign up without an email address
