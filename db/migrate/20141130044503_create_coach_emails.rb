@@ -4,6 +4,9 @@ class CreateCoachEmails < ActiveRecord::Migration
       t.belongs_to :user
 
       t.string :email, null: false
+      t.string :coach_firstname 
+      t.string :client_lastname
+      t.string :client_firstname
       t.text :content, null: false
       t.boolean :sentstatus
 

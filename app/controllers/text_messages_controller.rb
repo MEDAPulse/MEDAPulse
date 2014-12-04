@@ -44,10 +44,13 @@ def update
 end
 
 def receive
-  @text_message=TextMessage.create!(content: params[:Body], phone: params[:From])
-  @text_message.incoming_message = true
+  @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "false")
+  @client = Client.find_by(phone: params[:From])
 
   if @text_message.save
+    @coach_email=CoachEmail.create!(content: @text_message.content, sentstatus: "false", email: @client.user.email,
+      coach_firstname: @client.user.first_name, client_firstname: @client.first_name, client_lastname: @client.last_name)
+    CoachNotifier.delay.send_coach_email(@coach_email.id)
     render nothing: true, status: 200
   else
     puts 'ERROR: company or customer couldn\'t be loaded' 
