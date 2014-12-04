@@ -16,12 +16,13 @@ class ClientsController < ApplicationController
 
   def create
     @client = current_user.clients.build(client_params)
+
     authorize @client
     if @client.save
     flash[:notice] = "Success! Client was saved."
     redirect_to @client
     else
-    flash[:error] = "There was an error saving the Client. Please try again."
+    flash[:error] = @client.errors.full_messages
     render :new
     end
   end
