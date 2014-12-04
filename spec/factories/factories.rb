@@ -21,12 +21,17 @@ FactoryGirl.define do
     password              "panda!b3@rs"
     password_confirmation "panda!b3@rs"
     
-    factory :user_with_clients do
+    factory :confirmed_user do
+      after(:create) { |user| user.confirm! }
+    end
+    
+    factory :confirmed_user_with_clients do
       transient do
         clients_count 5
       end
-      
+
       after(:create) do |user, evaluator|
+        user.confirm!
         create_list(:client, evaluator.clients_count, user: user)
       end
     end
