@@ -8,7 +8,8 @@
 		<%= link_to "Create New Plan", new_client_action_plan_path(@client),
 											class: 'btn btn-success' %>
 
-		<%= render @client.action_plans %>
+		<%= link_to "Welcome Text", welcome_path(@client), class: 'btn btn-info' %>
+    <%= render @client.action_plans %>
   </div>
 
 </div>

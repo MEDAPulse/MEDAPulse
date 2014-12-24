@@ -49,7 +49,7 @@ class ClientsController < ApplicationController
   end
 
   end
-    def destroy
+  def destroy
     @client = current_user.clients.find(params[:id])
     first_name = @client.first_name
     if @client.destroy
@@ -58,8 +58,31 @@ class ClientsController < ApplicationController
     else
     flash[:error] = "There was an error deleting the client."
     render :show
+  end
+
+  def welcome 
+    @client = current_user.clients.find(params[:id])
+
+    content = "Welcome to MEDAPulse, #{@client.first_name}. Please save this number in your phone as #{@client.user.first_name}. I'll be texting you with reminders for your goals. Text back if you need help!"
+  
+    phone = @client.phone
+    @text_message = @client.text_messages.build(text_message_params)
+    @text_message.incoming_message = false
+    @text_message.sentstatus = false
+  
+    if @text_message.scheduled_date == nil 
+      @text_message.send_text_message(@text_message.content, @text_message.phone)
+    end
+
+    if (@text_message.save && (@text_message.sentstatus == true))
+      flash[:notice] = "Success! Your welcome text is being sent now."
+      redirect_to @client 
+    else
+      flash[:error] = "There was an error sending your welcome text. Please try again."
+      redirect_to @client 
     end
   end
+end
 
   private
 
