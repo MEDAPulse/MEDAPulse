@@ -76,10 +76,8 @@ class ClientsController < ApplicationController
 
     if (@text_message.save && (@text_message.sentstatus == true))
       flash[:notice] = "Success! Your welcome text is being sent now."
-      redirect_to @client 
     else
       flash[:error] = "There was an error sending your welcome text. Please try again."
-      redirect_to @client 
     end
   end
 end
