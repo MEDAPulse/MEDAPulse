@@ -53,29 +53,26 @@ class ClientsController < ApplicationController
     @client = current_user.clients.find(params[:id])
     first_name = @client.first_name
     if @client.destroy
-    flash[:notice] = "\"#{first_name}\" was deleted successfully."
-    redirect_to clients_path
+      flash[:notice] = "\"#{first_name}\" was deleted successfully."
+      redirect_to clients_path
     else
-    flash[:error] = "There was an error deleting the client."
-    render :show
+      flash[:error] = "There was an error deleting the client."
+      render :show
   end
 
-  def welcome 
-    @client = current_user.clients.find(params[:id])
+  def welcome
+    @client = current_user.clients.find(params[:client])
 
-    content = "Welcome to MEDAPulse, #{@client.first_name}. Please save this number in your phone as #{@client.user.first_name}. I'll be texting you with reminders for your goals. Text back if you need help!"
-  
     phone = @client.phone
-    @text_message = @client.text_messages.build(text_message_params)
+    @text_message = @client.text_messages.build
     @text_message.incoming_message = false
     @text_message.sentstatus = false
-  
-    if @text_message.scheduled_date == nil 
-      @text_message.send_text_message(@text_message.content, @text_message.phone)
-    end
+    @text_message.content = "Welcome to MEDAPulse, #{@client.first_name}. Please save this number in your phone as #{@client.user.first_name}. I'll be texting you with reminders for your goals. Text back if you need help!" 
+    @text_message.send_text_message(@text_message.content, phone)
 
     if (@text_message.save && (@text_message.sentstatus == true))
-      flash[:notice] = "Success! Your welcome text is being sent now."
+      flash[:notice] = "Text was sent: \"#{@text_message.content}\""
+      redirect_to clients_path
     else
       flash[:error] = "There was an error sending your welcome text. Please try again."
     end
