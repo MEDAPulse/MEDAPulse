@@ -8,7 +8,13 @@
 		<%= link_to "Create New Plan", new_client_action_plan_path(@client),
 											class: 'btn btn-success' %>
 
-		<%= render @client.action_plans %>
+		<%# link_to "Welcome Text", @client, method: :welcome, class: 'btn btn-info', data: { confirm: 'Are you sure you want to send a welcome text?' } %>
+
+    <%= link_to "Welcome Text", welcome_clients_path(:client => @client.id), method: :post, class: 'btn btn-info', data: { confirm: 'Are you sure you want to send a welcome text?' } %>
+
+    <%= link_to "Delete Client", @client, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this client?' } %>
+    
+    <%= render @client.action_plans %>
   </div>
 
 </div>

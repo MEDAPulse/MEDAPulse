@@ -29,6 +29,12 @@ require 'sidekiq/web'
   get "text_messages/receive"
   match '/receivetext' => 'text_messages#receive', :via => :post
 
+  resources :clients do
+    collection do
+      post :welcome
+    end
+  end
+
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'
