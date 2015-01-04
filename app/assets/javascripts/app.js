@@ -10,3 +10,7 @@
   }]);
 
 })();
+
+$(function() {
+	$("#datepicker").datepicker();
+});

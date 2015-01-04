@@ -17,13 +17,55 @@
 /*@import "bootstrap";*/
 @import "font-awesome"; 
 
-h2 {
-    font-size: 2em;
+body,
+html {
+    width: 100%;
+    height: 100%;
 }
 
-.header-zazzle {
-    display: inline;
-    padding: 0px;
+body.not-signed-in {
+    background: image-url("intro-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body.signed-in {
+    background-color: rgb(255, 255, 255);
+}
+
+body.signed-in,
+body.not-signed-in,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p, 
+.pure-g {
+    font-family: 'Lato', "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 1.75em;
+    padding: 3px;
+    margin: 0px;
+}
+
+h3, h4 {
+    padding: 3px;
+    margin: 0px;
+}
+
+h5 {
+    padding: 3px 10px;
+    margin: 0px;
+}
+
+.big {
+    font-style: italic;
 }
 
 .inline-display {
@@ -31,23 +73,65 @@ h2 {
 }
 
 header {
-    background-color: white;    
+    background-color: white;  
+    padding: 10px; 
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #E9E9E9; 
 }
 
-.navbar-header {
-    display: inline-block;
+a {
+    color: rgb(0,129,196);
+    text-decoration: none;
+}
+
+.sidebar {
+    padding: 20px;
+}
+
+.main {
+}
+
+.padding {
+    padding: 20px 0px 0px 0px;
 }
 
 .float-right {
     float: right;
 }
 
+.inline {
+    display: inline-block;
+}
+
+.add {
+    float: right;
+}
+
 .form-style {
-    padding: 0px 40px;
-    width: 75%;
+    padding: 20px;
+    margin: 40px;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     text-align: left; 
+    background-color: rgba(255,255,255, 0.5);
+}
+
+.margin {
+    margin: 10px 0 0 0;
+}
+
+.align-center {
+    text-align: center;
+}
+
+h3.margin {
+    margin: 0px 0px 20px 0px;
+}
+
+.pure-form-stacked input[type=text], .pure-form-stacked input[type=password], .pure-form-stacked input[type=email], .pure-form-stacked input[type=url], .pure-form-stacked input[type=date], .pure-form-stacked input[type=month], .pure-form-stacked input[type=time], .pure-form-stacked input[type=datetime], .pure-form-stacked input[type=datetime-local], .pure-form-stacked input[type=week], .pure-form-stacked input[type=number], .pure-form-stacked input[type=search], .pure-form-stacked input[type=tel], .pure-form-stacked input[type=color], .pure-form-stacked select, .pure-form-stacked textarea {
+    margin: .25em 0em 1em 0em;
 }
 
 /*flash*/

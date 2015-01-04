@@ -1,37 +1,33 @@
-<div class="col-md-8">
-<%= form_for @client do |f| %>
-	<div class="form-group">
-		<%= f.label "First Name" %>
-		<%= f.text_field :first_name, class: 'form-control',
-			placeholder: "Enter first name" %>
-	</div>
-	<div class="form-group">
-		<%= f.label "Last Name" %>
-		<%= f.text_field :last_name, class: 'form-control',
-			placeholder: "Enter last name" %>
-	</div>
-	<div class="form-group">
-		<%= f.label :phone %>
-		<%= f.text_field :phone, class: 'form-control',
-			placeholder: "Enter phone" %>
-	</div>
-	<div class="form-group">
-		<%= f.label :email %>
-		<%= f.text_field :email, class: 'form-control',
-			placeholder: "Enter email" %>
-	</div>
-	<div class="form-group">
-		<%= f.label "MEDA Contact ID" %>
-		<%= f.text_field :contact_id, class: 'form-control',
-			placeholder: "Enter MEDA Contact ID" %>
-	</div>
-	<div class="form-group">
-		<%= f.label :salesforce %>
-		<%= f.text_field :salesforce_id, class: 'form-control',
-			placeholder: "Optional: Enter Salesforce ID" %>
-	</div>
-	<div class="form-group">
-		<%= link_to "Cancel", :back, class: 'btn btn-default' %>
-		<%= f.submit "Save", class: 'btn btn-success' %>
-  </div>
-<% end %>
+<div class="form-style">
+	<%= form_for @client, html: {role: 'form', class: "pure-form pure-form-stacked"} do |f| %>
+		
+		<fieldset>
+			<h3>New Client</h3>
+
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name, :autofocus => true, class: 'form-control',
+				placeholder: "Enter first name" %>
+
+			<%= f.label :last_name %>
+			<%= f.text_field :last_name, class: 'form-control',
+				placeholder: "Enter last name" %>
+
+			<%= f.label :phone %>
+			<%= f.text_field :phone, class: 'form-control',
+				placeholder: "Enter phone" %>
+
+			<%= f.label :email %>
+			<%= f.email_field :email, class: 'form-control',
+				placeholder: "Enter email" %>
+
+			<%= f.label :salesforce %>
+			<%= f.text_field :salesforce_id, class: 'form-control',
+				placeholder: "Enter Salesforce ID" %>
+
+			<div class='actions'>
+				<%= f.submit "Save", class: 'pure-button pure-button-primary' %>
+				<%= link_to "Cancel", :back, class: 'pure-button' %>
+			</div>
+		</fieldset>
+	<% end %>
+</div>

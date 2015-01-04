@@ -4,6 +4,8 @@ class GoalsController < ApplicationController
   def new
     @action_plan = ActionPlan.find(params[:action_plan_id])
     @goal = @action_plan.goals.build
+    @goals = @action_plan.goals.all
+    @client = Client.find(@action_plan[:client_id]) #awkward, but works.
   end
 
   def create

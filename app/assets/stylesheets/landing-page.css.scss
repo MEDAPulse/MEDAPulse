@@ -1,25 +1,3 @@
-body,
-html {
-    width: 100%;
-    height: 100%;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Lato', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    font-weight: 400;
-}
-
-body {
-    background: image-url("intro-bg.jpg");
-    background-size: 100%;
-}
-
 .lead {
     font-size: 18px;
     font-weight: 400;
@@ -42,6 +20,7 @@ body {
     position: center;
     padding-top: 20%;
     padding-bottom: 20%;
+    margin: 10px;
 }
 
 .intro-message > h1 {
