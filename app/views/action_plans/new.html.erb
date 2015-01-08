@@ -12,7 +12,7 @@
 				<%= form_for([@client, @action_plan], html: { class: "pure-form pure-form-stacked" } ) do |f| %>
 					<div class= "inline">
 							<%= f.label :title_of_action_plan %>
-							<%= f.text_field :description, class: 'form-control pure-input',
+							<%= f.text_field :description, class: 'pure-input',
 								placeholder: "Enter title of action plan (e.g., 12/31/14 Meeting with Maria)" %>
 						<%= f.submit "Create action plan", class: 'pure-button pure-button-primary' %>
 				  </div>

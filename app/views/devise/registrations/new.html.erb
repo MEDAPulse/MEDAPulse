@@ -7,13 +7,13 @@
 			<h3>Sign up</h3>
 
 		      	<%= f.label :first_name %>
-		      	<%= f.text_field :first_name, :autofocus => true, class: 'form-control' %>
+		      	<%= f.text_field :first_name, :autofocus => true %>
 
 		      	<%= f.label :last_name %>
-		     	<%= f.text_field :last_name, class: 'form-control' %>
+		     	<%= f.text_field :last_name %>
 
 			    <%= f.label :email %>
-			    <%= f.email_field :email, class: 'form-control' %>
+			    <%= f.email_field :email %>
 				
 		    <div class='pure-control-group'>
 	     	  	<%= f.label :title %>
@@ -21,10 +21,10 @@
 		    </div>
 
 			    <%= f.label :password %>
-			    <%= f.password_field :password, class: 'form-control' %>
+			    <%= f.password_field :password %>
 
 			    <%= f.label :password_confirmation %>
-			    <%= f.password_field :password_confirmation, class: 'form-control' %>
+			    <%= f.password_field :password_confirmation %>
 
 			<div class='actions'>
 		     	<%= f.submit 'Sign up', class: 'pure-button pure-button-primary' %>

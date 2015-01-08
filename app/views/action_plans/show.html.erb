@@ -8,24 +8,22 @@
 
 		<!--<%= render 'navbar' %>-->
 	
-		<div class="margin">
-			<h3 class="inline big">
+			<h3>
 				Action plan: <%= @action_plan.description %>
 				<%= link_to edit_action_plan_path(@action_plan) do %>
 						<span class="icon-pencil-1"></span>
 				<% end %>
 			</h3>
 
-			<h5 class="inline add">
+			<h6>
 				<% if current_page?(action_plan_path) %>
-					<%= link_to new_action_plan_goal_path(@action_plan) do %>
-						Add goals to Action plan
+					Add goals
+					<%= link_to new_action_plan_goal_path(@action_plan) do %>	
 						<span class="icon-plus-circled"></span>
 					<% end %>
 				<% end %>
-			</h5>
+			</h6>
 
-		</div>				
 		<%= render @goals %>
 
 		</div>

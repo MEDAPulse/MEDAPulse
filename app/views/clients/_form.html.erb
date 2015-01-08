@@ -1,27 +1,30 @@
-<div class="form-style">
+<div>
 	<%= form_for @client, html: {role: 'form', class: "pure-form pure-form-stacked"} do |f| %>
 		
 		<fieldset>
-			<h3>New Client</h3>
 
 			<%= f.label :first_name %>
-			<%= f.text_field :first_name, :autofocus => true, class: 'form-control',
+			<%= f.text_field :first_name, :autofocus => true,
 				placeholder: "Enter first name" %>
 
 			<%= f.label :last_name %>
-			<%= f.text_field :last_name, class: 'form-control',
+			<%= f.text_field :last_name, 
 				placeholder: "Enter last name" %>
 
 			<%= f.label :phone %>
-			<%= f.text_field :phone, class: 'form-control',
+			<%= f.text_field :phone, 
 				placeholder: "Enter phone" %>
 
+			<%= f.label "MEDA Contact ID" %>
+			<%= f.text_field :contact_id, 
+			placeholder: "Enter MEDA Contact ID" %>
+
 			<%= f.label :email %>
-			<%= f.email_field :email, class: 'form-control',
+			<%= f.email_field :email, 
 				placeholder: "Enter email" %>
 
 			<%= f.label :salesforce %>
-			<%= f.text_field :salesforce_id, class: 'form-control',
+			<%= f.text_field :salesforce_id, 
 				placeholder: "Enter Salesforce ID" %>
 
 			<div class='actions'>
