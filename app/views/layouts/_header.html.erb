@@ -1,29 +1,24 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-		<% if user_signed_in? %>
-    	<div class="navbar-header">
-        <%= link_to image_tag('medalogo.jpg'), clients_path %>
-   	 	</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  	<ul class="nav navbar-nav navbar-right navbar-text">				
-		  		<%= link_to "Hello, #{current_user.first_name}!", edit_user_registration_path(current_user) %>
-					<span class="divider"> </span>
-					<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-				</ul>
-			</div>
-		<% else %>
-	    <div class="navbar-header">
-	      <%= image_tag('medalogo.jpg') %>
-	    </div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			  <ul class="nav navbar-nav navbar-right navbar-text">
-					<%= link_to "contribute", 'https://github.com/MEDAPulse/MEDAPulse' %>
-					<%= link_to "press", 'http://www.prnewswire.com/news-releases/cities-for-financial-empowerment-fund-and-capital-one-announce-winners-of-multi-city-hackathon-to-support-financial-empowerment-274604051.html' %>
-			  	<%= link_to "sign in", new_user_session_path %>
-				</ul>
-			</div>
-		<% end %>
-  </div>
-</nav>
+<% if user_signed_in? %>
+	<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    	
+    	<%= link_to image_tag('medalogo.jpg'), clients_path, { :class=> "inline-display pure-menu-heading" } %>
+	  	
+	  	<ul class="float-right">
+	  		<li><%= link_to "Hello, #{current_user.first_name}!", edit_user_registration_path(current_user) %>
+	  		</li>
+			<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+			</li>
+		</ul>
+	</div>
 
-
+<% else %>
+	<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    	<%= link_to image_tag('medalogo.jpg'), root_path, { :class=> "inline-display pure-menu-heading" } %>
+	  	<ul class="float-right">
+			<li><%= link_to "about", '#' %></li>
+			<li><%= link_to "contribute", '#' %></li>
+			<li><%= link_to "press", '#' %></li>
+	  		<li><%= link_to "sign in", new_user_session_path %></li>
+		</ul>
+	</div>
+<% end %>
