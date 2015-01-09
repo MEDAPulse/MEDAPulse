@@ -4,16 +4,16 @@
 <%= form_for @text_message do |f| %>
   <div class="form-group">
     <%= f.label "Text Content" %>
-    <%= f.text_field :content, class: 'form-control',
+    <%= f.text_field :content, class: 'pure-input',
       placeholder: "What would you like to say?" %>
   </div>
   <div class="form-group">
     <%= f.label "Scheduled Date" %>
-    <%= f.date_field :scheduled_date, class: 'form-control',
+    <%= f.date_field :scheduled_date, class: 'pure-input',
       placeholder: "When would you like to send it?" %>
   </div>
   <div class="form-group">
-    <%= link_to "Cancel", :back, class: 'btn btn-default' %>
-    <%= f.submit "Save", class: 'btn btn-success' %>
+    <%= link_to "Cancel", :back, class: 'pure-button' %>
+    <%= f.submit "Save", class: 'pure-button pure-button-primary' %>
   </div>
 <% end %>

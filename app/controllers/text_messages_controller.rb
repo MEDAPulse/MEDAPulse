@@ -1,5 +1,6 @@
 class TextMessagesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:receive]
+  protect_from_forgery :except => ["receive"]
   
 def new
   @step = Step.find(params[:step_id])
@@ -14,9 +15,10 @@ def create
   @text_message = @step.text_messages.build(text_message_params)
   @text_message.incoming_message = false
   @text_message.sentstatus = false
+  @text_message.phone = phone
   
   if @text_message.scheduled_date == nil 
-    @text_message.send_text_message(@text_message.content)
+    @text_message.send_text_message(@text_message.content, @text_message.phone)
   end
 
   if (@text_message.save && (@text_message.sentstatus == true))
@@ -39,12 +41,26 @@ def update
       flash[:error] = "There was an error saving the text. Please try again."
       render :edit
   end
-end 
+end
+
+def receive
+  @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "false")
+  @client = Client.find_by(phone: params[:From])
+
+  if @text_message.save
+    @coach_email=CoachEmail.create!(content: @text_message.content, sentstatus: "false", email: @client.user.email,
+      coach_firstname: @client.user.first_name, client_firstname: @client.first_name, client_lastname: @client.last_name)
+    CoachNotifier.delay.send_coach_email(@coach_email.id)
+    render nothing: true, status: 200
+  else
+    puts 'ERROR: company or customer couldn\'t be loaded' 
+  end 
+end  
 
 private
 
 def text_message_params
-  params.require(:text_message).permit(:content, :scheduled_date, :client_id, :sentstatus)
+  params.require(:text_message).permit(:content, :scheduled_date, :client_id, :sentstatus, :phone)
 end  
 
 end

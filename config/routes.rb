@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
+require 'sidekiq/web'
+
   devise_for :users, :path => '',
     :path_names => {:sign_in => 'login', :sign_out => 'logout'}, 
     :controllers => { registrations: 'registrations' }
+
+  authenticate :user do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   resources :clients do
     resources :action_plans, shallow: true, except: [:index] 
@@ -18,6 +24,15 @@ Rails.application.routes.draw do
 
   resources :steps, shallow: true, only: [] do
     resources :text_messages, shallow: true, except: [:index, :destroy]
+  end
+
+  get "text_messages/receive"
+  match '/receivetext' => 'text_messages#receive', :via => :post
+
+  resources :clients do
+    collection do
+      post :welcome
+    end
   end
 
   get 'about' => 'welcome#about'

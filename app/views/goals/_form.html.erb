@@ -1,13 +1,8 @@
-<div class="col-md-8">
-<%= form_for([@action_plan, @goal]) do |f| %>
-	<div class="form-group">
-		<%= f.label :description %>
-		<%= f.text_field :description, class: 'form-control',
-			placeholder: "Enter description" %>
+<%= form_for([@action_plan, @goal], html: { class: "pure-form" }) do |f| %>
+	<div>
+		<%= f.text_field :description, class: 'pure-input', placeholder: "Enter goal description" %>
+		<%= f.submit "Save goal", class: 'pure-button pure-button-primary' %>
+		<%= link_to "Cancel", :back %>
 	</div>
-	<div class="form-group">
-		<%= link_to "Cancel", :back, class: 'btn btn-default' %>
-		<%= f.submit "Save", class: 'btn btn-success' %>
-  </div>
 <% end %>
 

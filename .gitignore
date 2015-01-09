@@ -24,3 +24,6 @@
 
 # Ignore silly mac stuff
 .DS_Store
+
+# Ignore private local env vars
+config/environment_variables.yml

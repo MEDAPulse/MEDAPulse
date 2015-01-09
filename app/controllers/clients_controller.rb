@@ -16,12 +16,13 @@ class ClientsController < ApplicationController
 
   def create
     @client = current_user.clients.build(client_params)
+
     authorize @client
     if @client.save
     flash[:notice] = "Success! Client was saved."
     redirect_to @client
     else
-    flash[:error] = "There was an error saving the Client. Please try again."
+    flash[:error] = @client.errors.full_messages
     render :new
     end
   end
@@ -48,17 +49,35 @@ class ClientsController < ApplicationController
   end
 
   end
-    def destroy
+  def destroy
     @client = current_user.clients.find(params[:id])
     first_name = @client.first_name
     if @client.destroy
-    flash[:notice] = "\"#{first_name}\" was deleted successfully."
-    redirect_to clients_path
+      flash[:notice] = "\"#{first_name}\" was deleted successfully."
+      redirect_to clients_path
     else
-    flash[:error] = "There was an error deleting the client."
-    render :show
+      flash[:error] = "There was an error deleting the client."
+      render :show
+  end
+
+  def welcome
+    @client = current_user.clients.find(params[:client])
+
+    phone = @client.phone
+    @text_message = @client.text_messages.build
+    @text_message.incoming_message = false
+    @text_message.sentstatus = false
+    @text_message.content = "Welcome to MEDAPulse, #{@client.first_name}. Please save this number in your phone as #{@client.user.first_name}. I'll be texting you with reminders for your goals. Text back if you need help!" 
+    @text_message.send_text_message(@text_message.content, phone)
+
+    if (@text_message.save && (@text_message.sentstatus == true))
+      flash[:notice] = "Text was sent: \"#{@text_message.content}\""
+      redirect_to clients_path
+    else
+      flash[:error] = "There was an error sending your welcome text. Please try again."
     end
   end
+end
 
   private
 

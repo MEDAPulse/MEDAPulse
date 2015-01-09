@@ -1,25 +1,23 @@
-<%= div_for step do %>
-	Step <%= format_counter(step_counter) %>: <%= step.description %>
+<h5>
+	<% if current_page?(action_plan_path) %>
+		Step <%= format_counter(step_counter) %>: <%= step.description %>
+
 	<%= step.due_by %>
 	<%= step.complete %>
-	<% if current_page?(action_plan_path) %>
 		<%= link_to edit_step_path(step) do %>
-			<span class="glyphicon glyphicon-edit"></span>
+			<span class="icon-pencil-1"></span>
 		<% end %>
 	<% end %>
+</h5>
 
-	<div class="container">
-		<h4>Text Messages: 
-		<% if current_page?(action_plan_path) %>
-			<%= link_to new_step_text_message_path(step) do %>
-				<span class="glyphicon glyphicon-plus-sign"></span>
-			<% end %>
+<h6>
+	<% if current_page?(action_plan_path) %>
+		Add messages
+		<%= link_to new_step_text_message_path(step) do %>
+		<span class="icon-plus-circled"></span>
 		<% end %>
-		</h4>
-		
-		<%= render step.text_messages %>
-	</div>
+	<% end %>
+</h6>
 
-<% end%>
-
+<%= render step.text_messages %>
 

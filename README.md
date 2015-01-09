@@ -20,3 +20,6 @@ Want to contribute to MEDAPulse project? We'd love to have you on board. You can
 ### Special Thanks
 
 - [Sean Todd](https://github.com/descentintomael/)
+
+### Testing
+[ ![Codeship Status for MEDAPulse/MEDAPulse](https://codeship.com/projects/9934cf00-e85e-0131-219c-66a2774f0218/status)](https://codeship.com/projects/26053)
