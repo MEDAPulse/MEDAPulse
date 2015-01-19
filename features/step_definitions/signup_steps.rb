@@ -6,7 +6,7 @@ end
 def sign_up
   visit root_path
   
-  click_on "Sign up Today"
+  click_on "Sign Up Today"
 
   fill_in "First name", with: @visitor.first_name
   fill_in "Last name", with: @visitor.last_name
