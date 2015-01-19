@@ -39,6 +39,7 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'faker'
+  gem 'guard-cucumber'
 end
 
 group :development do
