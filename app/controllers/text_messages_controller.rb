@@ -3,14 +3,29 @@ class TextMessagesController < ApplicationController
   protect_from_forgery :except => ["receive"]
   
 def new
-  @step = Step.find(params[:step_id])
-  @text_message = @step.text_messages.build
+  Client.all.each do |client|
+    if @step
+      @step = Step.find(params[:step_id])
+      @text_message = @step.text_messages.build
+    elsif @client
+      @client = Client.find(params[:client_id])
+      @text_message = @client.text_messages.build
+    end
+  end
 end
 
 def create
-  @step = Step.find(params[:step_id])
-  phone = @step.goal.action_plan.client.phone
   content = params[:text_message][:content]
+
+  if @step
+    @step = Step.find(params[:step_id])
+    phone = @step.goal.action_plan.client.phone
+    @text_message = @step.text_messages.build(text_message_params)
+  else 
+    @client = Client.find(params[:client_id])
+    phone = @client.phone
+    @text_message = @client.text_messages.build(text_message_params)
+  end
     
   @text_message = @step.text_messages.build(text_message_params)
   @text_message.incoming_message = false

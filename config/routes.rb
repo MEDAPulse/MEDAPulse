@@ -41,6 +41,8 @@ require 'sidekiq/web'
     end
   end
 
+  get 'group' => 'text_messages#group', :as => :group
+
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'

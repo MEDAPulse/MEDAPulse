@@ -5,13 +5,12 @@
 
   <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-2-3">
     <div class="main padding">
-
-        <%= render 'action_plans/navbar' %>
       <div>
-        <%= form_for([@client, @text_message], html: { class: "pure-form pure-form-stacked" }) do |f| %>
+        <%# form_for :@text_message, :url => {:action => "new", :id => @client}, html: { class: "pure-form pure-form-stacked" } do |f| %>
+        <%= form_for([@user, @text_message], html: { class: "pure-form pure-form-stacked" }) do |f| %>
              <div class="form-group">
               <%= f.label "Select your clients" %>
-              <%= select_tag :client_id, options_for_select(Client.all.collect {|u| [u.last_name, u.id]}),:multiple => true %>
+              <%= select_tag :client_id, options_for_select(User.Client.all.collect {|u| [u.last_name, u.id]}),:multiple => true %>
             </div>
             <div class="form-group">
               <%= f.label "Enter text message" %>
