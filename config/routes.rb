@@ -35,6 +35,12 @@ require 'sidekiq/web'
     end
   end
 
+  resources :text_messages do
+    collection do
+      post :group
+    end
+  end
+
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'
