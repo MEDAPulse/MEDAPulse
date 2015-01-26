@@ -1,2 +1,4 @@
 asset 'angular'
+asset 'angular-ui-bootstrap-bower'
+asset 'bootstrap-sass-official'
 # nano: ft=ruby

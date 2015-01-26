@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <title>MEDAPulse</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="intro-header">
+
+        <div class="container">
+
+                    <div class="row">
+                            <div class="intro-message">
+                                <h2>What can you help your clients accomplish today?</h2>
+                                <h3>MEDAPulse helps you guide them every step of the way</h3>
+
+                                <hr class="intro-divider">
+																<%= link_to "Sign up Today", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+                            </div>
+                    </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <h4> App Built Exclusively for the Mission Economic Development Agency </h4>
+            </div>
+        </div>
+    </footer>
+
+      <div ng-view class="view-frame animate-view"></div>
+
+</body>
+
+</html>

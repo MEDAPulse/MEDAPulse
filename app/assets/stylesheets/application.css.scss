@@ -15,6 +15,9 @@
  */
 /*@import "bootstrap-sprockets";*/
 /*@import "bootstrap";*/
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
 @import "font-awesome"; 
 
 body,
@@ -200,3 +203,12 @@ h3.margin {
     color: #468847;
     text-align: left;
  }
+
+.progress { 
+  height: 3em;
+  i { line-height: 3.5em; }
+}
+
+.progress-bar { 
+  transition: width 1s ease-in-out; 
+}

@@ -1,12 +1,20 @@
 	<h4>
 		Goal <%= format_counter(goal_counter) %>: <%= goal.description %>
+
 		<% if current_page?(action_plan_path) %>
 			<%= link_to edit_goal_path(goal) do %>
 				<span class="icon-pencil-1"></span>
 			<% end %>
 		<% end %>
+
+		<div class="progress" style="height: 10%">
+		  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="<%= @steps_completed %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @steps_percent %>%">
+		    <span><%= @steps_percent %>% Complete</span>
+	  </div>
+	  
 	</h4>
 
+<%= @adiffword %>
 	<h6>
 		<% if current_page?(action_plan_path) %>
 			Add steps to Goal 		

@@ -22,6 +22,22 @@ class ActionPlansController < ApplicationController
     @action_plan = ActionPlan.find(params[:id])
     @goals = @action_plan.goals.all
     @client = Client.find(@action_plan[:client_id]) #awkward, but works.
+
+    @steps_count = 0
+    @steps_completed = 0
+    @goal = @action_plan.goals.find(params[:id])
+    puts "------------------------------------------- \nOutput of PUTS here:"
+    puts "Goal id: #{@goal.id}\n------------------------------------------"
+    
+    @goal.steps.find_each do |step|
+      @steps_count += 1
+    end
+
+    @goal.steps.where(complete: true).find_each do |step|
+      @steps_completed += 1
+    end
+
+    @steps_percent = (@steps_completed.round(2) / @steps_count.round(2) * 100).round(0)
   end
   
   def edit
