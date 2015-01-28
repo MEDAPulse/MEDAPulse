@@ -35,13 +35,8 @@ require 'sidekiq/web'
     end
   end
 
-  resources :text_messages do
-    collection do
-      post :group
-    end
-  end
-
-  get 'group' => 'text_messages#group', :as => :group
+  get 'group_new' => 'text_messages#group_new' 
+  post 'group_create' => 'text_messages#group_create'
 
   get 'about' => 'welcome#about'
 

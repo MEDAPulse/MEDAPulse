@@ -9,7 +9,7 @@
       <div class="main padding">
         <% if policy(Client.new).create? %>
         <%= link_to "Create New Client", new_client_path, class: 'pure-button pure-button-primary' %>
-        <%= link_to "Create Group Text", group_path, class: 'pure-button button-green' %>
+        <%= link_to "Create Group Text", group_new_path, class: 'pure-button button-green' %>
         <% end %>
 
       <div ng-controller="clientsController">
