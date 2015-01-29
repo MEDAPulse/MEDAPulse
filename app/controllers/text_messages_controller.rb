@@ -39,7 +39,7 @@ def group_new
 end
 
 def group_create
-  client_hash = params[:client_id]
+  client_hash = params[:client_ids]
 
   client_hash.each do |client|
     @client = Client.find(client)

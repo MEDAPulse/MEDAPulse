@@ -11,11 +11,14 @@
     <%= form_for @text_message, class: "pure-form pure-form-stacked", url: group_create_path, html: { method: :post } do |f| %>
       <div class="form-group">
         <%= f.label "Select your clients" %>
-        <%= select_tag :client_id, options_for_select(Client.all.collect {|u| [u.last_name, u.id]}),:multiple => true %>
+        <% @clients.each do |client| %>
+            <p><%= check_box_tag 'client_id[]', client.id -%>
+            <%= h client.last_name -%></p>
+        <% end %>
       </div>
       <div class="form-group">
         <%= f.label "Enter text message" %>
-        <%= f.text_field :content, class: 'pure-input',
+        <%= f.text_field :content, :size => 80, class: 'pure-input',
                 placeholder: "What would you like to say?" %>
       </div>
             
