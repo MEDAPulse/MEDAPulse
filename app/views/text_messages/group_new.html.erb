@@ -1,32 +1,33 @@
 <div class="pure-g">
   <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
-    <h3> New Group Text Message </h3>
+    <h3></h3>
   </div>
 
-  <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-2-3">
-    <div class="main padding">
-      <div>
-      <%= form_for @text_message, class: "pure-form pure-form-stacked", url: group_create_path, html: { method: :post } do |f| %>
-          <div class="form-group">
-            <%= f.label "Select your clients" %>
-            <%= select_tag :client_id, options_for_select(Client.all.collect {|u| [u.last_name, u.id]}),:multiple => true %>
-          </div>
-          <div class="form-group">
-            <%= f.label "Enter text message" %>
-            <%= f.text_field :content, class: 'pure-input',
-                placeholder: "What would you like to say?" %>
-          </div>
-            
-          <div class="form-group">
-            <%= f.label "Enter scheduled date (leave date blank to send now)" %>
-            <%= f.date_field :scheduled_date, class: 'pure-input' %>
-          </div>
-          <div class="form-group">
-            <%= f.submit "Save Group Message", class: 'pure-button pure-button-primary' %>
-            <%= link_to "Cancel", :back %>
-          </div>
-        <% end %>  
+  
+<div class="pure-u-1 pure-u-md-2-3 pure-u-lg-2-3">
+  <div class="main padding">
+  <fieldset>  
+  <legend>New Group Text</legend>
+    <%= form_for @text_message, class: "pure-form pure-form-stacked", url: group_create_path, html: { method: :post } do |f| %>
+      <div class="form-group">
+        <%= f.label "Select your clients" %>
+        <%= select_tag :client_id, options_for_select(Client.all.collect {|u| [u.last_name, u.id]}),:multiple => true %>
       </div>
-    </div>
+      <div class="form-group">
+        <%= f.label "Enter text message" %>
+        <%= f.text_field :content, class: 'pure-input',
+                placeholder: "What would you like to say?" %>
+      </div>
+            
+      <div class="form-group">
+        <%= f.label "Enter scheduled date (leave date blank to send now)" %>
+        <%= f.date_field :scheduled_date, class: 'pure-input' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Save Group Message", class: 'pure-button pure-button-primary' %>
+        <%= link_to "Cancel", :back %>
+      </div>
+    <% end %>  
+  </fieldset>
   </div>
 </div>

@@ -39,14 +39,22 @@ def group_new
 end
 
 def group_create
-  Client.all.each do |client|
-    @client = Client.find(params[:client_id])
-    @text_messages = TextMessage.create!(sentstatus: "false", incoming_message: "false")
+  client_hash = params[:client_id]
 
+  client_hash.each do |client|
+    @client = Client.find(client)
     content = params[:text_message][:content]
-    phone = @client.phone
-    @text_message.send_text_message(@text_message.content, phone)
+    
+    @text_message = @client.text_messages.build(text_message_params)
+    @text_message.incoming_message = false
+    @text_message.sentstatus = false
+    @text_message.phone = @client.phone
+
+    if @text_message.scheduled_date == nil 
+      @text_message.send_text_message(@text_message.content, @text_message.phone)
+    end
   end
+  redirect_to clients_path
 end
 
 def update
