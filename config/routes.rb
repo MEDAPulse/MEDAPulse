@@ -35,6 +35,9 @@ require 'sidekiq/web'
     end
   end
 
+  get 'group_new' => 'text_messages#group_new' 
+  post 'group_create' => 'text_messages#group_create'
+
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'

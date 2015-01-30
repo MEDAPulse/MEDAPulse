@@ -33,6 +33,32 @@ def create
   end
 end
 
+def group_new
+  @clients = current_user.clients.order(:last_name)
+  @text_message = TextMessage.new 
+end
+
+def group_create
+  client_hash = params[:client_id]
+
+  client_hash.each do |client|
+    @client = Client.find(client)
+    content = params[:text_message][:content]
+    
+    @text_message = @client.text_messages.build(text_message_params)
+    @text_message.incoming_message = false
+    @text_message.sentstatus = false
+    @text_message.phone = @client.phone
+
+    if @text_message.scheduled_date == nil 
+      @text_message.send_text_message(@text_message.content, @text_message.phone)
+    else
+      @text_message.save 
+    end
+  end
+  redirect_to clients_path
+end
+
 def update
   if @text_message.update_attributes(text_message_params)
       flash[:notice] = "Success! Text was updated."
