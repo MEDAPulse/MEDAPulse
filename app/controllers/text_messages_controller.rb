@@ -39,7 +39,7 @@ def group_new
 end
 
 def group_create
-  client_hash = params[:client_ids]
+  client_hash = params[:client_id]
 
   client_hash.each do |client|
     @client = Client.find(client)
@@ -52,6 +52,8 @@ def group_create
 
     if @text_message.scheduled_date == nil 
       @text_message.send_text_message(@text_message.content, @text_message.phone)
+    else
+      @text_message.save 
     end
   end
   redirect_to clients_path

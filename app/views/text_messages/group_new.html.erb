@@ -6,9 +6,9 @@
   
 <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-2-3">
   <div class="main padding">
-  <fieldset>  
-  <legend>New Group Text</legend>
-    <%= form_for @text_message, class: "pure-form pure-form-stacked", url: group_create_path, html: { method: :post } do |f| %>
+    <h2>New Group Text</h2>
+    <%#= form_for @text_message, class: "pure-form pure-form-stacked", url: group_create_path, html: { method: :post } do |f| %>
+    <%= form_for @text_message, url: group_create_path, html: {role: 'form', class: "pure-form pure-form-stacked"} do |f| %>
       <div class="form-group">
         <%= f.label "Select your clients" %>
         <% @clients.each do |client| %>
@@ -31,6 +31,5 @@
         <%= link_to "Cancel", :back %>
       </div>
     <% end %>  
-  </fieldset>
   </div>
 </div>
