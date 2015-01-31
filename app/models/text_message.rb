@@ -36,5 +36,6 @@ class TextMessage < ActiveRecord::Base
     end
 
     self.save!
+    
   end  
 end

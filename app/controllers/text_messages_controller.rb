@@ -86,7 +86,7 @@ end
 private
 
 def text_message_params
-  params.require(:text_message).permit(:content, :scheduled_date, :client_id, :sentstatus, :phone)
+  params.require(:text_message).permit(:content, :scheduled_date, :client_id, :sentstatus, :phone, :scheduled_time)
 end  
 
 end
