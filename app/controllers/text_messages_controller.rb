@@ -18,6 +18,7 @@ def create
   @text_message.phone = phone
   
   if @text_message.scheduled_date == nil 
+    @text_message.scheduled_date = Date.today
     @text_message.send_text_message(@text_message.content, @text_message.phone)
   end
 
@@ -51,6 +52,7 @@ def group_create
     @text_message.phone = @client.phone
 
     if @text_message.scheduled_date == nil 
+      @text_message.scheduled_date = Date.today
       @text_message.send_text_message(@text_message.content, @text_message.phone)
     else
       @text_message.save 

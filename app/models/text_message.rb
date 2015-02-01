@@ -34,8 +34,6 @@ class TextMessage < ActiveRecord::Base
     if e != "400" || e != "500"
       self.sentstatus = true
     end
-
-    self.save!
-    
+    self.save!  
   end  
 end
