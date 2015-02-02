@@ -19,6 +19,8 @@ def create
   
   if @text_message.scheduled_date == nil 
     @text_message.scheduled_date = Date.today
+    # print time in Pacific time
+    @text_message.scheduled_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
     @text_message.send_text_message(@text_message.content, @text_message.phone)
   end
 
@@ -53,6 +55,8 @@ def group_create
 
     if @text_message.scheduled_date == nil 
       @text_message.scheduled_date = Date.today
+      # print time in Pacific time
+      @text_message.scheduled_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
       @text_message.send_text_message(@text_message.content, @text_message.phone)
     else
       @text_message.save 
