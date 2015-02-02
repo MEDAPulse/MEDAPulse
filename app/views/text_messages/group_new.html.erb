@@ -26,6 +26,12 @@
         <%= f.label "Enter scheduled date (leave date blank to send now)" %>
         <%= f.date_field :scheduled_date, class: 'pure-input' %>
       </div>
+
+      <div class="form-group">
+        <%= f.label "Enter scheduled time (pst)" %>
+        <%= f.time_field :scheduled_time, class: 'pure-input' %>
+      </div>      
+      
       <div class="form-group">
         <%= f.submit "Save Group Message", class: 'pure-button pure-button-primary' %>
         <%= link_to "Cancel", :back %>
