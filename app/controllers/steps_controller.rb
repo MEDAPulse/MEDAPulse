@@ -34,7 +34,7 @@ class StepsController < ApplicationController
 
     if @step.update_attributes(step_params)
       flash[:notice] = "Success!  Step was updated."
-      redirect_to @client
+      redirect_to @action_plan
     else
       flash[:error] = "There was an error saving the step. Please try again."
       render :edit

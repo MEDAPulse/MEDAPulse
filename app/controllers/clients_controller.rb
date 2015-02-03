@@ -30,6 +30,8 @@ class ClientsController < ApplicationController
   def show
     @client = current_user.clients.find(params[:id])
     @action_plans = @client.action_plans.all
+    @text_messages = @client.text_messages.all
+    # @texts = @client.action_plans.goals.steps.text_messages
   end
 
   def edit
