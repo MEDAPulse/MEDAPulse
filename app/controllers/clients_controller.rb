@@ -42,14 +42,14 @@ class ClientsController < ApplicationController
     @client = current_user.clients.find(params[:id])
     # authorize @client
     if @client.update_attributes(client_params)
-    flash[:notice] = "Success! Client was updated."
-    redirect_to @client
+      flash[:notice] = "Success! Client was updated."
+      redirect_to @client
     else
-    flash[:error] = "There was an error saving the client. Please try again."
-    render :edit
+      flash[:error] = "There was an error saving the client. Please try again."
+      render :edit
+    end
   end
 
-  end
   def destroy
     @client = current_user.clients.find(params[:id])
     first_name = @client.first_name
@@ -59,17 +59,14 @@ class ClientsController < ApplicationController
     else
       flash[:error] = "There was an error deleting the client."
       render :show
+    end
   end
 
-  def welcome
+  def welcome 
     @client = current_user.clients.find(params[:client])
-
-    phone = @client.phone
-    @text_message = @client.text_messages.build
-    @text_message.incoming_message = false
-    @text_message.sentstatus = false
-    @text_message.content = "Welcome to MEDAPulse, #{@client.first_name}. Please save this number in your phone as #{@client.user.first_name}. I'll be texting you with reminders for your goals. Text back if you need help!" 
-    @text_message.send_text_message(@text_message.content, phone)
+    @text_message=TextMessage.create!(scheduled_date: Date.today, client_id: @client.id, content: "Welcome to MEDAPulse, #{@client.first_name}. Please save this number as #{@client.user.first_name}. I'll be texting you with reminders. Text back if you need help!", phone: @client.phone, incoming_message: "false", sentstatus: "false")
+    @text_message.scheduled_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
+    @text_message.send_text_message(@text_message.content, @text_message.phone)
 
     if (@text_message.save && (@text_message.sentstatus == true))
       flash[:notice] = "Text was sent: \"#{@text_message.content}\""
@@ -78,7 +75,6 @@ class ClientsController < ApplicationController
       flash[:error] = "There was an error sending your welcome text. Please try again."
     end
   end
-end
 
   private
 
