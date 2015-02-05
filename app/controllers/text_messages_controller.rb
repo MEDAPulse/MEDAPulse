@@ -16,6 +16,7 @@ def create
   @text_message.incoming_message = false
   @text_message.sentstatus = false
   @text_message.phone = phone
+  @text_message.client_id = @step.goal.action_plan.client.id 
   
   if @text_message.scheduled_date == nil 
     @text_message.scheduled_date = Date.today
@@ -52,6 +53,7 @@ def group_create
     @text_message.incoming_message = false
     @text_message.sentstatus = false
     @text_message.phone = @client.phone
+    @text_message.client_id = @client.id 
 
     if @text_message.scheduled_date == nil 
       @text_message.scheduled_date = Date.today
