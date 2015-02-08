@@ -1,3 +1,4 @@
+
  <div class="pure-g">
   	<div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
 		<%= render partial: "client_sidebar", object: @client %>
@@ -16,9 +17,13 @@
 
 	<div class="pure-u-1 pure-u-md-2-3 pure-u-lg-2-3">
 	    <div class="main padding">
-			<%= render @client.action_plans %>
+				<h3> Action Plans </h3>
+				<hr/>
+				<%= render @client.action_plans %> 
+					<div class="space"></div>
+				<h3> Text Message Activity Feed </h3>
+				<hr/>
+				<%= render @texts.sort_by(&:scheduled_date) %>
 		</div>
 	</div>
 </div>
-
-

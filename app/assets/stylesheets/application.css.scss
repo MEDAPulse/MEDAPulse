@@ -110,6 +110,12 @@ a {
 
 .sidebar {
     padding: 20px;
+    float: left;
+}
+
+.sidebar-right {
+    padding: 20px;
+    float: right;
 }
 
 .main {
@@ -200,3 +206,5 @@ h3.margin {
     color: #468847;
     text-align: left;
  }
+
+.space { margin-top: 75px; }

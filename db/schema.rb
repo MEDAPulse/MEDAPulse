@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207214913) do
+ActiveRecord::Schema.define(version: 20150130193111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20141207214913) do
     t.boolean  "sentstatus"
     t.integer  "step_id"
     t.string   "phone"
+    t.time     "scheduled_time"
   end
 
   add_index "text_messages", ["client_id"], name: "index_text_messages_on_client_id", using: :btree

@@ -3,8 +3,10 @@
 	    <span class="icon-mail"></span>
 
 	    <%= text_message.content %>
-	    <%= text_message.scheduled_date %>
-	    <%= text_message.sentstatus %>
+      </br>
+	    Date: <%= text_message.scheduled_date %>
+      Time: <%= text_message.scheduled_time.strftime("%I:%M %p") %>
+	    Sent Status: <%= text_message.sentstatus %>
     </h5>
 <% end %>
 
