@@ -11,7 +11,7 @@
         <%= form_for([@step, @text_message], html: { class: "pure-form pure-form-stacked" }) do |f| %>
             <div class="form-group">
               <%= f.label "Enter text message" %>
-              <%= f.text_field :content, :size => 80, class: 'pure-input',
+              <%= f.text_field :content, :size => 80, :maxlength => 160, class: 'pure-input',
                 placeholder: "What would you like to say?" %>
             </div>
             
