@@ -46,6 +46,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'spring'
+  gem 'rails-erd'
 end
 
 group :test do

@@ -21,9 +21,9 @@
 				<hr/>
 				<%= render @client.action_plans %> 
 					<div class="space"></div>
-				<h3> Text Message Activity </h3>
+				<h3> Text Message Activity Feed </h3>
 				<hr/>
-				<%= render @texts %>
+				<%= render @texts.sort_by(&:scheduled_date) %>
 		</div>
 	</div>
 </div>
