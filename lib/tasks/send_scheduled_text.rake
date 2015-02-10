@@ -10,7 +10,9 @@ namespace :send_scheduled_text do
           SendTextWorker.perform_async(text_message.id)
         elsif (Date.today == text_message.scheduled_date)
           if (Time.now.hour >= text_message.scheduled_time.hour)
-            SendTextWorker.perform_async(text_message.id)
+            if (Time.now.min >= text_message.scheduled_time.min)
+              SendTextWorker.perform_async(text_message.id)
+            end
           end
         end
       end
