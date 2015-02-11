@@ -79,7 +79,7 @@ end
 
 def receive
   @client = Client.find_by(phone: params[:From])
-  @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "false", client_id: @client.id)
+  @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "false", client_id: @client.id, scheduled_date: Date.today, scheduled_time: Time.now.in_time_zone("Pacific Time (US & Canada)")
   
   if @text_message.save
     @coach_email=CoachEmail.create!(content: @text_message.content, sentstatus: "false", email: @client.user.email,
