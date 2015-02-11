@@ -21,9 +21,9 @@
 				<hr/>
 				<%= render @client.action_plans %> 
 					<div class="space"></div>
-				<h3> Ongoing Text Message Feed (From You) </h3>
+				<h3> Outgoing Text Message Feed (From You) </h3>
 				<hr/>
-				<%= render @ongoing_texts.sort_by(&:scheduled_date) %>
+				<%= render @outgoing_texts.sort_by(&:scheduled_date) %>
 					<div class="space"></div>
 				<h3> Incoming Text Message Feed (From Client) </h3>
 				<hr/>
