@@ -79,7 +79,7 @@ end
 
 def receive
   @client = Client.find_by(phone: params[:From])
-  @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "false", client_id: @client.id)
+  @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "true", client_id: @client.id)
   @text_message.scheduled_date = Date.today
   # add time in Pacific time
   @text_message.scheduled_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
