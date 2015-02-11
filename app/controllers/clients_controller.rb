@@ -30,7 +30,8 @@ class ClientsController < ApplicationController
   def show
     @client = current_user.clients.find(params[:id])
     @action_plans = @client.action_plans.all
-    @texts = TextMessage.where(client_id: @client.id)
+    @ongoing_texts = TextMessage.where(client_id: @client.id).where(incoming_message: "false")
+    @incoming_texts = TextMessage.where(client_id: @client.id).where(incoming_message: "true")
   end
 
   def edit
