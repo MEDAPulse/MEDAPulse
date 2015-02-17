@@ -77,6 +77,18 @@ def update
   end
 end
 
+def destroy
+  @text_message = TextMessage.find(params[:id])
+  content = @text_message.content
+  if @text_message.destroy
+    flash[:notice] = "\"#{content}\" was deleted successfully."
+    redirect_to action_plan_path
+  else
+    flash[:error] = "There was an error deleting the text."
+    redirect_to action_plan_path
+  end
+end
+
 def receive
   @client = Client.find_by(phone: params[:From])
   @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "true", client_id: @client.id)
