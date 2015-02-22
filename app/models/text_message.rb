@@ -7,7 +7,7 @@ class TextMessage < ActiveRecord::Base
   belongs_to :step, dependent: :destroy
   has_many :coach_emails
 
-before_save :grab_phone
+  before_save :grab_phone
 
   def grab_phone
     self.phone = phone

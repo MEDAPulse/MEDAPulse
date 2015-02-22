@@ -39,12 +39,14 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'faker'
+  gem 'guard-cucumber'
 end
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'spring'
+  gem 'rails-erd'
 end
 
 group :test do

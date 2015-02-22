@@ -1,11 +1,14 @@
 <%= div_for action_plan do %>
-	<div class='h3'>
-		<%= "Action Plan:  #{action_plan.description}" %>
-		<%= link_to action_plan_path(action_plan) do %>
-			<span class="glyphicon glyphicon-zoom-in"></span>
-		<% end %>
-	</div>
+<h3>
+	<%= "#{action_plan.description}" %>
+	<%= link_to action_plan_path(action_plan) do %>
+			<span class="icon-pencil-1"></span>
+	<% end %>
+</h3>
 
-	<%= render action_plan.goals %>
-
+	<!--
+	<h4>
+		<%= render action_plan.goals %>
+	</h4>
+	-->
 <% end %>

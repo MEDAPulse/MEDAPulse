@@ -1,9 +1,5 @@
 <% flash.each do |key, message| %>
   <div class="alert alert-<%= key %> alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert">
-			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-		</button>
-		
     <ul>
 			<% if message.is_a? String %>
 				<li><%= message %></li>
@@ -13,5 +9,8 @@
 				<% end %>
 			<% end %>
     </ul>
+    	<button type="button" class="pure-button close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
   </div>
  <% end %>
