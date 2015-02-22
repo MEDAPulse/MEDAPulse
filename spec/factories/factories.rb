@@ -3,21 +3,89 @@ FactoryGirl.define do
     "coach#{n}@medasf.org"
   end
   
+  factory :coach_email do 
+    text_message
+    client
+    user 
+    email            { Faker::Internet.email }
+    coach_firstname  { Faker::Name.first_name }
+    client_firstname { Faker::Name.first_name }
+    client_lastname  { Faker::Name.last_name }
+    sentstatus       { [true, false].sample }
+    content          { Faker::Hacker.say_something_smart }
+  end
+  
+  factory :text_message do 
+    client
+    content          { Faker::Hacker.say_something_smart }
+    incoming_message { [true, false].sample }
+    scheduled_date   { Faker::Date.forward(30) }
+    scheduled_time   { Faker::Time.forward(23).in_time_zone("Pacific Time (US & Canada)") }
+    sentstatus       { [true, false].sample }        
+    phone            { "+14127364161"  }
+  end
+  
+  factory :step do
+    goal
+    description      { Faker::Company.catch_phrase }
+    due_by           { Faker::Date.forward(30) }
+    complete         { [true, false].sample }
+  end
+  
+  factory :goal do
+    action_plan
+    description   { Faker::Lorem.sentence }
+    
+    transient do
+      steps_count 3
+    end
+    
+    after(:create) do |goal, evaluator|
+      create_list(:step, evaluator.steps_count, goal: goal)
+    end
+  end
+  
+  factory :action_plan do
+    client
+    description   { Faker::Lorem.sentence }
+    
+    transient do
+      goals_count 3
+    end
+    
+    after(:create) do |action_plan, evaluator|
+      create_list(:goal, evaluator.goals_count, action_plan: action_plan)
+    end
+  end
+
+  
   factory :client do
     user
-    first_name    Faker::Name.first_name
-    last_name     Faker::Name.last_name
+    first_name    { Faker::Name.first_name }
+    last_name     { Faker::Name.last_name }
     phone         "+14085551212"
-    email         Faker::Internet.email
-    contact_id    Faker::Number.number(8)
-    salesforce_id Faker::Number.number(15)
+    email         { Faker::Internet.email }
+    contact_id    { Faker::Number.number(8) }
+    salesforce_id { Faker::Number.number(15) }
+    
+    # factory :client_with_action_plans do
+    transient do
+      action_plans_count 3
+    end
+    
+    after(:create) do |client, evaluator|
+      create_list(:action_plan, evaluator.action_plans_count, client: client)
+    end
+    # end
+    
+    
   end
  
   factory :user do
-    first_name  Faker::Name.first_name
-    last_name   Faker::Name.last_name
+    first_name  { Faker::Name.first_name }
+    last_name   { Faker::Name.last_name }
     email
-    title       ['Financial Capability', 'Homeownership', 'Workforce', 'SparkPoint', 'Other'].sample
+    title       { ['Financial Capability', 'Homeownership', 'Workforce', 'SparkPoint', 'Other'].sample }
     password              "panda!b3@rs"
     password_confirmation "panda!b3@rs"
     
