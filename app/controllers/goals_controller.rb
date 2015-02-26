@@ -22,13 +22,7 @@ class GoalsController < ApplicationController
 
   def show
     @action_plan = ActionPlan.find(params[:action_plan_id])
-    @goals = @action_plan.goals.all
-
-    @adiffword = "test132456789"
-  end
-
-  def edit
-    @goal = Goal.find(params[:id])
+    @goals = @action_plan.goals.includes(:steps)
   end
 
   def update
