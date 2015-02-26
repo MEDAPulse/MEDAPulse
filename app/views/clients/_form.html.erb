@@ -3,21 +3,21 @@
 		
 		<fieldset>
 
-			<%= f.label :first_name %>
+			<%= f.label :first_name, "First name *" %>
 			<%= f.text_field :first_name, :autofocus => true,
 				placeholder: "Enter first name" %>
 
-			<%= f.label :last_name %>
+			<%= f.label :last_name, "Last name *" %>
 			<%= f.text_field :last_name, 
 				placeholder: "Enter last name" %>
 
-			<%= f.label :phone %>
+			<%= f.label :phone, "Phone *" %>
 			<%= f.text_field :phone, 
-				placeholder: "Enter phone" %>
+				value: "+1" %>
 
-			<%= f.label "MEDA Contact ID" %>
+			<%= f.label :contact_id, "MEDA Contact ID" %>
 			<%= f.text_field :contact_id, 
-			placeholder: "Enter MEDA Contact ID" %>
+				placeholder: "Enter MEDA Contact ID" %>
 
 			<%= f.label :email %>
 			<%= f.email_field :email, 
