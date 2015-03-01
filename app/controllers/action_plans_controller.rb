@@ -21,7 +21,7 @@ class ActionPlansController < ApplicationController
   def show
     @action_plan = ActionPlan.find(params[:id])
     @goals = @action_plan.goals.all
-    @client = Client.find(@action_plan[:client_id]) #awkward, but works.
+    @client = Client.find(@action_plan[:client_id]) 
   end
   
   def edit

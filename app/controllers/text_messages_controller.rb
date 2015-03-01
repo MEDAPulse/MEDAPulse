@@ -20,7 +20,6 @@ def create
   
   if @text_message.scheduled_date == nil 
     @text_message.scheduled_date = Date.today
-    # print time in Pacific time
     @text_message.scheduled_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
     @text_message.send_text_message(@text_message.content, @text_message.phone)
   end
@@ -57,7 +56,6 @@ def group_create
 
     if @text_message.scheduled_date == nil 
       @text_message.scheduled_date = Date.today
-      # print time in Pacific time
       @text_message.scheduled_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
       @text_message.send_text_message(@text_message.content, @text_message.phone)
     else
@@ -68,20 +66,35 @@ def group_create
 end
 
 def update
+  @text_message = TextMessage.find(params[:id])
+  @step = Step.find(params[@text_message.step_id])
+  @goal = Goal.find(@step.goal_id)
+  @action_plan = ActionPlan.find(@goal.action_plan_id)
+
   if @text_message.update_attributes(text_message_params)
       flash[:notice] = "Success! Text was updated."
-      redirect_to @text_message.step.goal.action_plan
+      redirect_to @action_plan
     else
       flash[:error] = "There was an error saving the text. Please try again."
       render :edit
   end
 end
 
+def destroy
+  @text_message = TextMessage.find(params[:id])
+  content = @text_message.content
+  if @text_message.destroy
+    flash[:notice] = "\"#{content}\" was deleted successfully."
+    redirect_to action_plan_path
+  else
+    flash[:error] = "There was an error deleting the text."
+    redirect_to action_plan_path
+  end
+end
+
 def receive
   @client = Client.find_by(phone: params[:From])
   @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "true", client_id: @client.id)
-  @text_message.scheduled_date = Date.today
-  # add time in Pacific time
   @text_message.scheduled_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
 
   if @text_message.save
