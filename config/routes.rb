@@ -23,7 +23,7 @@ require 'sidekiq/web'
   end
 
   resources :steps, shallow: true, only: [] do
-    resources :text_messages, shallow: true, except: [:index]
+    resources :text_messages, shallow: true, except: [:index, :destroy]
   end
 
   get "text_messages/receive"
@@ -37,6 +37,8 @@ require 'sidekiq/web'
 
   get 'group_new' => 'text_messages#group_new' 
   post 'group_create' => 'text_messages#group_create'
+
+  get 'about' => 'welcome#about'
 
   root to: 'welcome#index'
   
