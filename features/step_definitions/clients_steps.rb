@@ -6,6 +6,22 @@ def create_clients
   @clients = (0..4).map{ FactoryGirl.create(:client, user: @coach) }
 end
 
+When(/^I create a new client$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should see that new client in my list of clients$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^I edit the client's details$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should see an updated list of clients$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
 When(/^have several clients$/) do
   create_coach
   create_clients
@@ -23,11 +39,10 @@ When(/^delete one client$/) do
   client = @clients.sample
   visit client_path(client)
   click_link("Delete Client")
-  # TODO - Use a different web driver to click ok for confirmation pop-up
-  # click_button("OK")
+  page.driver.browser.switch_to.alert.accept # Selenium thang
 end
 
 Then(/^that clients should be removed from my list of clients$/) do
-  # TODO - change eq(5) to eq(4) after new web driver installed.
-  expect(@clients.count).to eq(5)
+  expect(current_path).to eq(clients_path)
+  expect(@coach.clients.count).to eq(4)
 end

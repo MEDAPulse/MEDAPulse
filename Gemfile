@@ -54,6 +54,7 @@ group :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'selenium-webdriver'
 end
 
 gem 'twilio-ruby'
@@ -66,3 +67,4 @@ gem 'pundit'
 
 # For Angular asset package management
 gem 'bower-rails'
+

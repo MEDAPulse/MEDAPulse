@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+require 'selenium-webdriver'
 require "#{Rails.root}/spec/factories/factories.rb"  # Tells Cucumber where FactoryGirl factories reside.
 
 # Capybara defaults to CSS3 selectors rather than XPath.
