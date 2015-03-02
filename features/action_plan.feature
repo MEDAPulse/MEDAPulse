@@ -14,4 +14,4 @@ Feature: Pulse Sign In
 	Scenario: Coach can edit client action plan
 		When I visit a client's page
 		And I edit the client's action plan
-		Then I should the edited client action plan
+		Then I should see the edited client action plan

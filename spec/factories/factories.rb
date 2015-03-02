@@ -35,29 +35,12 @@ FactoryGirl.define do
   factory :goal do
     action_plan
     description   { Faker::Lorem.sentence }
-    
-    transient do
-      steps_count 3
-    end
-    
-    after(:create) do |goal, evaluator|
-      create_list(:step, evaluator.steps_count, goal: goal)
-    end
   end
   
   factory :action_plan do
     client
-    description   { Faker::Lorem.sentence }
-    
-    transient do
-      goals_count 3
-    end
-    
-    after(:create) do |action_plan, evaluator|
-      create_list(:goal, evaluator.goals_count, action_plan: action_plan)
-    end
+    description   { Faker::Hacker.adjective }
   end
-
   
   factory :client do
     user
@@ -67,18 +50,6 @@ FactoryGirl.define do
     email         { Faker::Internet.email }
     contact_id    { Faker::Number.number(8) }
     salesforce_id { Faker::Number.number(15) }
-    
-    # factory :client_with_action_plans do
-    transient do
-      action_plans_count 3
-    end
-    
-    after(:create) do |client, evaluator|
-      create_list(:action_plan, evaluator.action_plans_count, client: client)
-    end
-    # end
-    
-    
   end
  
   factory :user do
