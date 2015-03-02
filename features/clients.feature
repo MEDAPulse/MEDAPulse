@@ -5,10 +5,14 @@ Feature: Pulse Sign In
 
 	Scenario: Coach can view clients
 	  When I sign in with valid credentials
-		And create several clients
-		Then I should see my list of clients.
+		And have several clients
+		Then I should see my list of clients
 
-
+	Scenario: Coach can view clients
+	  When I sign in with valid credentials
+		And have several clients
+		And delete one client
+		Then that clients should be removed from my list of clients
 
 
 
