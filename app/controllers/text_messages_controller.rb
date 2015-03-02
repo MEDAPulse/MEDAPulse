@@ -67,17 +67,15 @@ end
 
 def edit
   @text_message = TextMessage.find(params[:id])
+  session[:return_to] ||= request.referer
 end
 
 def update
   @text_message = TextMessage.find(params[:id])
-  @step = Step.find(@text_message.step_id)
-  @goal = Goal.find(@step.goal_id)
-  @action_plan = ActionPlan.find(@goal.action_plan_id)
-
+  
   if @text_message.update_attributes(text_message_params)
       flash[:notice] = "Success! Text was updated."
-      redirect_to @action_plan
+      redirect_to session.delete(:return_to)
     else
       flash[:error] = "There was an error saving the text. Please try again."
       render :edit
