@@ -4,10 +4,6 @@ Rails.application.routes.draw do
     :path_names => {:sign_in => 'login', :sign_out => 'logout'}, 
     :controllers => { registrations: 'registrations' }
 
-  authenticate :user do
-    mount Sidekiq::Web => '/sidekiq'
-  end
-
   resources :clients do
     resources :action_plans, shallow: true, except: [:index] 
   end
