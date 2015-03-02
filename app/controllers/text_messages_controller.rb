@@ -65,15 +65,17 @@ def group_create
   redirect_to clients_path
 end
 
+def edit
+  @text_message = TextMessage.find(params[:id])
+  session[:return_to] ||= request.referer
+end
+
 def update
   @text_message = TextMessage.find(params[:id])
-  @step = Step.find(params[@text_message.step_id])
-  @goal = Goal.find(@step.goal_id)
-  @action_plan = ActionPlan.find(@goal.action_plan_id)
-
+  
   if @text_message.update_attributes(text_message_params)
       flash[:notice] = "Success! Text was updated."
-      redirect_to @action_plan
+      redirect_to session.delete(:return_to)
     else
       flash[:error] = "There was an error saving the text. Please try again."
       render :edit
@@ -83,12 +85,13 @@ end
 def destroy
   @text_message = TextMessage.find(params[:id])
   content = @text_message.content
+  session[:return_to] ||= request.referer
+
   if @text_message.destroy
     flash[:notice] = "\"#{content}\" was deleted successfully."
-    redirect_to action_plan_path
+    redirect_to session.delete(:return_to)
   else
     flash[:error] = "There was an error deleting the text."
-    redirect_to action_plan_path
   end
 end
 

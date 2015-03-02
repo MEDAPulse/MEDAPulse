@@ -23,7 +23,7 @@ require 'sidekiq/web'
   end
 
   resources :steps, shallow: true, only: [] do
-    resources :text_messages, shallow: true, except: [:index, :destroy]
+    resources :text_messages, shallow: true, except: [:index]
   end
 
   get "text_messages/receive"
