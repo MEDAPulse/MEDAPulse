@@ -10,6 +10,9 @@
       <span class="icon-award"></span>
     <% else %>
       <span class="icon-flag-checkered"></span>
+      <%= link_to edit_text_message_path(text_message) do %>
+        <span class="icon-pencil-1"></span>
+      <% end %>
     <% end %>
   </h5>
 <% end %>
