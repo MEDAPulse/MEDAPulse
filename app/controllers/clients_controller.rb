@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  # Implented for CORS - 'Cross-Origin Resource Sharing' for JSON and RAILS #
+  # Implemented for CORS - 'Cross-Origin Resource Sharing' for JSON and RAILS #
   before_filter :authenticate_user!
   before_filter :set_headers
 
@@ -19,11 +19,12 @@ class ClientsController < ApplicationController
 
     authorize @client
     if @client.save
-    flash[:notice] = "Success! Client was saved."
-    redirect_to @client
+      flash[:notice] = "Success! Client was saved."
+      redirect_to @client
     else
-    flash[:error] = @client.errors.full_messages
-    render :new
+      puts @client.params
+      flash[:error] = @client.errors.full_messages
+      render :new
     end
   end
 
@@ -84,11 +85,11 @@ class ClientsController < ApplicationController
     end
 
     def set_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Expose-Headers'] = 'ETag'
-    headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
-    headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,If-Modified-Since,If-None-Match'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Max-Age'] = '86400'
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Expose-Headers'] = 'ETag'
+      headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
+      headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,If-Modified-Since,If-None-Match'
+      headers['Access-Control-Request-Method'] = '*'
+      headers['Access-Control-Max-Age'] = '86400'
     end
 end
