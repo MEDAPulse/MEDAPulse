@@ -12,7 +12,6 @@ gem 'devise'
 
 # Background worker of choice
 # gem 'sidekiq', '3.2.5'
-gem 'sucker_punch', '~> 1.0'
 gem 'whenever', :require => false
 
 # Debugging
