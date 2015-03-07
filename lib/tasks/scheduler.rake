@@ -1,8 +1,7 @@
-require_relative '../../app/workers/send_text_worker'
-
+desc "This task is called by the Heroku scheduler add-on"
 namespace :send_scheduled_text do
   
-  task:texts => :environment do
+  task :texts => :environment do
 
     TextMessage.all.each do |text_message|
       if text_message.sentstatus == false
