@@ -1,1 +1,0 @@
-sidekiq: bundle exec sidekiq
