@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sandi Chart</title>
+  <link rel="stylesheet" href="assets/normalize.css">
+  <link rel="stylesheet" href="assets/morris.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/jquery.js"></script>
+  <script src="assets/chart.js"></script>
+  <script src="assets/script.js"></script>
+  <script type="text/javascript">
+    var data = [{"r10":21,"r11":1,"r20":36,"r21":19,"r30":215,"r31":7,"r40":3,"r41":5,"timestamp":1425322476000}];
+  </script>
+</head>
+<body>
+  <a href="https://github.com/makaroni4/sandi_meter"><img style="position: absolute; top: 0; left: 0; border: 0;" src="assets/forkme.png" alt="Fork me on GitHub"></a>
+  <div class="container">
+    <header>
+      <h1 class="main-title">Sandi Metz rules</h1>
+      <h2 class="main-description js-report-date"></h2>
+    </header>
+    <section class="pie-charts">
+      <div id="pie1" class="pie-charts-item"></div>
+      <div id="pie2" class="pie-charts-item"></div>
+      <div id="pie3" class="pie-charts-item"></div>
+      <div id="pie4" class="pie-charts-item"></div>
+      <div class="clearfix"></div>
+    </section>
+    <nav class="main-menu">
+      <a href="#" class="main-menu-active js-menu-item" data-rel=".js-charts">Rules</a>
+      <a href="#" class="js-menu-item" data-rel=".js-charts-percentage">Rules %</a>
+      <a href="#" class="js-menu-item" data-rel=".js-progress">Progress %</a>
+      <a href="#" class="js-menu-item" data-rel=".js-details">Details</a>
+    </nav>
+    <section class="plot-charts js-charts js-tab-item">
+      <div class="plot-charts-item">
+        <div class="plot-charts-item-caption">Number of 100 line classes vs time</div>
+        <div class="plot-charts-item-graph plot1"></div>
+      </div>
+      <div class="plot-charts-item">
+        <div class="plot-charts-item-caption">Number of 5 line methods vs time</div>
+        <div class="plot-charts-item-graph plot2"></div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="plot-charts-item">
+        <div class="plot-charts-item-caption">Number of methods calls with 4 params vs time</div>
+        <div class="plot-charts-item-graph plot3"></div>
+      </div>
+      <div class="plot-charts-item">
+        <div class="plot-charts-item-caption">Number of controllers with 1 instance variable vs time</div>
+        <div class="plot-charts-item-graph plot4"></div>
+      </div>
+      <div class="clearfix"></div>
+    </section>
+    <section class="details js-details js-tab-item">
+      <h2>Methods with 5+ lines</h2>
+<table class="details-stats">
+  <thead>
+    <tr>
+<th class="" title="">Class name</th>
+<th class="" title="">Method name</th>
+<th class="" title="">Size</th>
+<th class="" title="">Path</th>
+</tr>
+
+  </thead>
+  <tbody>
+    <tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">create</td>
+<td class="" title="">26</td>
+<td class="" title="">./app/controllers/text_messages_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">SendTextWorker</td>
+<td class="" title="">perform</td>
+<td class="" title="">22</td>
+<td class="" title="">./app/workers/send_text_worker.rb</td>
+</tr>
+<tr>
+<td class="" title="">TextMessage</td>
+<td class="" title="">send_text_message</td>
+<td class="" title="">22</td>
+<td class="" title="">./app/models/text_message.rb</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">group_create</td>
+<td class="" title="">21</td>
+<td class="" title="">./app/controllers/text_messages_controller.rb</td>
+</tr>
+<tr>
+<td class="" title=""></td>
+<td class="" title="">sign_up</td>
+<td class="" title="">14</td>
+<td class="" title="">./features/step_definitions/signup_steps.rb</td>
+</tr>
+<tr>
+<td class="" title="">DeviseHelper</td>
+<td class="" title="">devise_error_messages!</td>
+<td class="" title="">13</td>
+<td class="" title="">./app/helpers/devise_helper.rb</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">receive</td>
+<td class="" title="">12</td>
+<td class="" title="">./app/controllers/text_messages_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">StepsController</td>
+<td class="" title="">update</td>
+<td class="" title="">12</td>
+<td class="" title="">./app/controllers/steps_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">StepsController</td>
+<td class="" title="">create</td>
+<td class="" title="">11</td>
+<td class="" title="">./app/controllers/steps_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">GoalsController</td>
+<td class="" title="">update</td>
+<td class="" title="">11</td>
+<td class="" title="">./app/controllers/goals_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">ClientsController</td>
+<td class="" title="">welcome</td>
+<td class="" title="">11</td>
+<td class="" title="">./app/controllers/clients_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">ActionPlansController</td>
+<td class="" title="">update</td>
+<td class="" title="">10</td>
+<td class="" title="">./app/controllers/action_plans_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">ClientsController</td>
+<td class="" title="">create</td>
+<td class="" title="">10</td>
+<td class="" title="">./app/controllers/clients_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">destroy</td>
+<td class="" title="">10</td>
+<td class="" title="">./app/controllers/text_messages_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">ClientsController</td>
+<td class="" title="">destroy</td>
+<td class="" title="">9</td>
+<td class="" title="">./app/controllers/clients_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">ClientsController</td>
+<td class="" title="">update</td>
+<td class="" title="">9</td>
+<td class="" title="">./app/controllers/clients_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">update</td>
+<td class="" title="">9</td>
+<td class="" title="">./app/controllers/text_messages_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">GoalsController</td>
+<td class="" title="">create</td>
+<td class="" title="">9</td>
+<td class="" title="">./app/controllers/goals_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">ActionPlansController</td>
+<td class="" title="">create</td>
+<td class="" title="">9</td>
+<td class="" title="">./app/controllers/action_plans_controller.rb</td>
+</tr>
+
+  </tbody>
+</table>
+<div class="hint">NOTE: Red methods are misindented. Continue your way to perfect code by fixing them.</div><h2>Method calls with 4+ arguments</h2>
+<table class="details-stats">
+  <thead>
+    <tr>
+<th class="" title=""># of arguments</th>
+<th class="" title="">Path</th>
+</tr>
+
+  </thead>
+  <tbody>
+    <tr>
+<td class="" title="">6</td>
+<td class="" title="">./app/controllers/clients_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">6</td>
+<td class="" title="">./app/controllers/clients_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">6</td>
+<td class="" title="">./app/controllers/registrations_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">7</td>
+<td class="" title="">./app/controllers/registrations_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">5</td>
+<td class="" title="">./app/controllers/text_messages_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">6</td>
+<td class="" title="">./app/controllers/text_messages_controller.rb</td>
+</tr>
+<tr>
+<td class="" title="">6</td>
+<td class="" title="">./app/controllers/text_messages_controller.rb</td>
+</tr>
+
+  </tbody>
+</table>
+<h2>Controllers with 1+ instance variables</h2>
+<table class="details-stats">
+  <thead>
+    <tr>
+<th class="" title="">Controller name</th>
+<th class="" title="">Action name</th>
+<th class="" title="">Instance variables</th>
+</tr>
+
+  </thead>
+  <tbody>
+    <tr>
+<td class="" title="">ActionPlansController</td>
+<td class="" title="">new</td>
+<td class="" title="">@client, @action_plan</td>
+</tr>
+<tr>
+<td class="" title="">ActionPlansController</td>
+<td class="" title="">create</td>
+<td class="" title="">@client, @action_plan</td>
+</tr>
+<tr>
+<td class="" title="">ActionPlansController</td>
+<td class="" title="">show</td>
+<td class="" title="">@action_plan, @goals, @client</td>
+</tr>
+<tr>
+<td class="" title="">ClientsController</td>
+<td class="" title="">show</td>
+<td class="" title="">@client, @action_plans, @outgoing_texts, @incoming_texts</td>
+</tr>
+<tr>
+<td class="" title="">ClientsController</td>
+<td class="" title="">welcome</td>
+<td class="" title="">@client, @text_message</td>
+</tr>
+<tr>
+<td class="" title="">GoalsController</td>
+<td class="" title="">new</td>
+<td class="" title="">@action_plan, @goal, @goals, @client</td>
+</tr>
+<tr>
+<td class="" title="">GoalsController</td>
+<td class="" title="">create</td>
+<td class="" title="">@action_plan, @goal</td>
+</tr>
+<tr>
+<td class="" title="">GoalsController</td>
+<td class="" title="">show</td>
+<td class="" title="">@action_plan, @goals</td>
+</tr>
+<tr>
+<td class="" title="">GoalsController</td>
+<td class="" title="">update</td>
+<td class="" title="">@goal, @action_plan</td>
+</tr>
+<tr>
+<td class="" title="">StepsController</td>
+<td class="" title="">new</td>
+<td class="" title="">@goal, @step, @action_plan, @client</td>
+</tr>
+<tr>
+<td class="" title="">StepsController</td>
+<td class="" title="">create</td>
+<td class="" title="">@goal, @action_plan, @step</td>
+</tr>
+<tr>
+<td class="" title="">StepsController</td>
+<td class="" title="">update</td>
+<td class="" title="">@step, @goal, @action_plan, @client</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">new</td>
+<td class="" title="">@step, @text_message</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">create</td>
+<td class="" title="">@step, @text_message</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">group_new</td>
+<td class="" title="">@clients, @text_message</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">group_create</td>
+<td class="" title="">@client, @text_message</td>
+</tr>
+<tr>
+<td class="" title="">TextMessagesController</td>
+<td class="" title="">receive</td>
+<td class="" title="">@client, @text_message, @coach_email</td>
+</tr>
+
+  </tbody>
+</table>
+
+    </section>
+    <section class="charts-percentage js-charts-percentage js-tab-item">
+    </section>
+    <section class="progress js-progress js-tab-item">
+      <div class="plot-charts-item">
+        <div class="plot-charts-item-caption">Overall progress</div>
+        <div class="plot-charts-item-graph plot"></div>
+        <div class="clearfix"></div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      Scanned with love by <a href="https://github.com/makaroni4/sandi_meter">sandi_meter</a> gem.
+      Please, <a href="https://github.com/makaroni4/sandi_meter/issues/new">leave an issue</a> or
+      <a href="mailto:makaroni4@gmail.com">email</a> some feedback!
+    </footer>
+  </div>
+</body>
+</html>

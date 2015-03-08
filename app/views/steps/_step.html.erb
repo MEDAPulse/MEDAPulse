@@ -3,7 +3,11 @@
 		Step <%= format_counter(step_counter) %>: <%= step.description %>
 
 	<%= step.due_by %>
-	<%= step.complete %>
+  <% if step.complete == true %>     
+  	<span class="icon-award"></span>
+  <% else %>
+  <span class="icon-flag-checkered"></span>
+  <% end %>
 		<%= link_to edit_step_path(step) do %>
 			<span class="icon-pencil-1"></span>
 		<% end %>
