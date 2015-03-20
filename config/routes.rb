@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   get "text_messages/receive"
-  match '/receivetext' => 'text_messages#receive', :via => :post
+  match 'salty-coast-5328.herokuapp.com/receivetext' => 'text_messages#receive', :via => :post
 
   resources :clients do
     collection do
