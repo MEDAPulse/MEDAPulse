@@ -1,7 +1,7 @@
 class TextMessagesController < ApplicationController
   before_filter :authenticate_user!, except: [:receive]
   protect_from_forgery :except => ["receive"]
-  
+
 def new
   @step = Step.find(params[:step_id])
   @text_message = @step.text_messages.build
@@ -98,6 +98,7 @@ end
 def receive
   @client = Client.find_by(phone: params[:From])
   @text_message=TextMessage.create!(content: params[:Body], phone: params[:From], incoming_message: "true", sentstatus: "true", client_id: @client.id)
+  @text_message.scheduled_date = Date.today
   @text_message.scheduled_time = Time.now.in_time_zone("Pacific Time (US & Canada)")
 
   if @text_message.save
