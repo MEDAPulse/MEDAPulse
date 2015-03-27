@@ -208,3 +208,16 @@ h3.margin {
  }
 
 .space { margin-top: 75px; }
+
+.pure-menu {
+    ul{
+        list-style-type: none;
+    }
+    li{
+        display: inline;
+        padding: 10px;
+    }
+    a:hover{
+        color: #000;
+    }
+}
