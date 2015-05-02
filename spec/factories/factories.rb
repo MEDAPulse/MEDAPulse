@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :email do |n|
-    "coach#{n}@medasf.org"
+    "coach#{n}@#{ENV["EMAIL_DOMAIN"]}"
   end
   
   factory :client do

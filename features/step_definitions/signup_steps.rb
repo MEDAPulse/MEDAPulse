@@ -1,6 +1,7 @@
 ## Shared methods
 def create_visitor
   @visitor ||= FactoryGirl.build(:user)
+  puts @visitor.email
 end
 
 def sign_up
@@ -29,6 +30,12 @@ end
 When(/^I sign up without an email address/) do
   create_visitor
   @visitor.email = nil
+  sign_up
+end
+
+When(/^I sign up without a MEDA email address$/) do
+  create_visitor
+  @visitor.email = "Unknown.Person@example.com"
   sign_up
 end
 
