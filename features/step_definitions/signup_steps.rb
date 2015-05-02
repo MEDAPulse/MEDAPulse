@@ -1,7 +1,6 @@
 ## Shared methods
 def create_visitor
   @visitor ||= FactoryGirl.build(:user)
-  puts @visitor.email
 end
 
 def sign_up
