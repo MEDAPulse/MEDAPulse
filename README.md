@@ -6,7 +6,7 @@ More information can be found on our [wiki](https://github.com/MEDAPulse/MEDAPul
 
 ### Setup 
 
-We welcome non-profits to fork the project to create a version for your client/coach business. You will need to have your local Rails dev environment setup, a [Twilio](www.twilio.org) account and a [Sendgrid](www.sendgrid.com) account. 
+We welcome non-profits to fork the project to create a version for your client/coach business. You will need to have your local Rails dev environment setup, a [Twilio](www.twilio.org) account and a [Sendgrid](www.sendgrid.com) account. You will also need to add an email domain to your local Rails dev environment setup.
 
 ### Contribute
 
