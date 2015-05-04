@@ -32,6 +32,12 @@ When(/^I sign up without an email address/) do
   sign_up
 end
 
+When(/^I sign up without a MEDA email address$/) do
+  create_visitor
+  @visitor.email = "Unknown.Person@example.com"
+  sign_up
+end
+
 When(/^I sign up without any password/) do
   create_visitor
   @visitor.password = ''

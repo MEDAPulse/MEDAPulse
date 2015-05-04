@@ -11,6 +11,10 @@ Feature: Pulse Sign Up
 		When I sign up without an email address
 		Then I should see the message "Email can't be blank"
 
+	Scenario: Coach cannot sign up without a MEDA email address
+		When I sign up without a MEDA email address
+		Then I should see the message "Email is invalid. Only MEDA coaches may create accounts."
+
 	Scenario: Coach cannot sign up without a password
 		When I sign up without any password
 		Then I should see the message "Password can't be blank"
